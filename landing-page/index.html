@@ -88,7 +88,8 @@
     .service-list { display:flex; flex-direction:column; gap:10px; }
     .service-item { display:flex; align-items:center; gap:14px; background:var(--light); border-radius:14px; padding:14px 16px; text-decoration:none; color:var(--text); transition:background .2s,transform .15s; }
     .service-item:hover { background:#ececec; transform:translateX(-3px); }
-    .s-icon { font-size:1.4rem; flex-shrink:0; }
+    .s-icon { width:32px; height:32px; display:flex; align-items:center; justify-content:center; border-radius:8px; background:var(--teal); flex-shrink:0; }
+    .s-icon svg { width:17px; height:17px; }
     .s-text h4 { font-size:.9rem; font-weight:800; margin-bottom:2px; }
     .s-text p { font-size:.78rem; color:var(--muted); line-height:1.35; }
 
@@ -101,7 +102,8 @@
     .serv-card:nth-child(2) { background:var(--lav); }
     .serv-card:nth-child(3) { background:var(--lime); }
     .serv-deco { position:absolute; top:16px; left:16px; font-size:1.3rem; opacity:.35; }
-    .serv-icon { font-size:2.8rem; margin-bottom:20px; }
+    .serv-icon { width:52px; height:52px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,.3); border-radius:14px; margin-bottom:20px; }
+    .serv-icon svg { width:26px; height:26px; }
     .serv-card h3 { font-size:1.2rem; font-weight:900; margin-bottom:10px; }
     .serv-card p { font-size:.9rem; color:rgba(26,26,26,.75); line-height:1.7; margin-bottom:20px; }
     .serv-link { font-size:.88rem; font-weight:800; display:inline-flex; align-items:center; gap:6px; border-bottom:2px solid currentColor; padding-bottom:1px; }
@@ -115,7 +117,11 @@
     .benefit-card:nth-child(1)::before { background:var(--teal); opacity:.4; }
     .benefit-card:nth-child(2)::before { background:var(--lav); opacity:.4; }
     .benefit-card:nth-child(3)::before { background:var(--lime); opacity:.5; }
-    .b-icon { font-size:2rem; margin-bottom:14px; }
+    .b-icon { width:44px; height:44px; display:flex; align-items:center; justify-content:center; border-radius:12px; margin-bottom:14px; }
+    .b-icon svg { width:22px; height:22px; }
+    .benefit-card:nth-child(1) .b-icon { background:rgba(168,224,220,.4); }
+    .benefit-card:nth-child(2) .b-icon { background:rgba(197,184,232,.4); }
+    .benefit-card:nth-child(3) .b-icon { background:rgba(212,232,74,.45); }
     .benefit-card h3 { font-size:1rem; font-weight:800; margin-bottom:8px; }
     .benefit-card p { font-size:.88rem; color:var(--muted); line-height:1.65; }
 
@@ -228,15 +234,15 @@
       <p class="hero-float-title">✦ מה אנחנו מציעים</p>
       <div class="service-list">
         <a href="yiutz.html" class="service-item">
-          <span class="s-icon">🏢</span>
+          <span class="s-icon"><i data-lucide="building-2"></i></span>
           <div class="s-text"><h4>ייעוץ ארגוני</h4><p>שינוי מהיר, ממוקד ומשתף — מבפנים החוצה</p></div>
         </a>
         <a href="sadnaot.html" class="service-item">
-          <span class="s-icon">🎲</span>
+          <span class="s-icon"><i data-lucide="gamepad-2"></i></span>
           <div class="s-text"><h4>סדנאות חווייתיות</h4><p>למידה דרך משחק שמשאירה חותם</p></div>
         </a>
         <a href="kurs.html" class="service-item">
-          <span class="s-icon">🎓</span>
+          <span class="s-icon"><i data-lucide="graduation-cap"></i></span>
           <div class="s-text"><h4>קורס מנהלים</h4><p>לחשוב אחרת, להוביל אחרת — 3 מפגשים</p></div>
         </a>
       </div>
@@ -253,21 +259,21 @@
     <div class="services-grid">
       <a href="yiutz.html" class="serv-card">
         <span class="serv-deco">✦</span>
-        <div class="serv-icon">🏢</div>
+        <div class="serv-icon"><i data-lucide="building-2"></i></div>
         <h3>ייעוץ ארגוני</h3>
         <p>תהליך ממוקד שמאפשר לכל שכבות הארגון לקחת חלק בזיהוי האתגרים ובבניית הפתרון. שינוי שמחזיק לאורך זמן.</p>
         <span class="serv-link">קראו עוד ←</span>
       </a>
       <a href="sadnaot.html" class="serv-card">
         <span class="serv-deco">✦</span>
-        <div class="serv-icon">🎲</div>
+        <div class="serv-icon"><i data-lucide="gamepad-2"></i></div>
         <h3>סדנאות</h3>
         <p>חמש סדנאות חווייתיות — כובעי חשיבה, מפת חשיבה, פתרון בעיות, עבודת צוות ועוד. למידה שמייצרת שינוי.</p>
         <span class="serv-link">כל הסדנאות ←</span>
       </a>
       <a href="kurs.html" class="serv-card">
         <span class="serv-deco">✦</span>
-        <div class="serv-icon">🎓</div>
+        <div class="serv-icon"><i data-lucide="graduation-cap"></i></div>
         <h3>קורס מנהלים</h3>
         <p>קורס עומק בן 3 מפגשים למנהלים: חשיבה אפקטיבית, קבלת החלטות, בניית צוותים פרודוקטיביים.</p>
         <span class="serv-link">פרטי הקורס ←</span>
@@ -284,17 +290,17 @@
     <p class="sec-sub">שלושה תחומים שמשתנים כשמפתחים חשיבה אפקטיבית.</p>
     <div class="benefits-grid">
       <div class="benefit-card">
-        <div class="b-icon">🧠</div>
+        <div class="b-icon"><i data-lucide="brain"></i></div>
         <h3>שיפור מיומנויות חשיבה</h3>
         <p>חשיבה כוללת ניתוח מידע. על ידי לימוד טכניקות ואסטרטגיות חשיבה שונות, אתם משפרים את יכולתכם לחשוב בהיגיון, לפתור בעיות ולקבל החלטות מושכלות.</p>
       </div>
       <div class="benefit-card">
-        <div class="b-icon">💡</div>
+        <div class="b-icon"><i data-lucide="lightbulb"></i></div>
         <h3>הגברת יצירתיות וחדשנות</h3>
         <p>קבלת כלים שמעוררים יצירתיות ומעודדים חשיבה חדשנית. לחשוב מחוץ לקופסה, לייצר רעיונות חדשים ולטפל באתגרים מנקודות מבט שונות.</p>
       </div>
       <div class="benefit-card">
-        <div class="b-icon">🤝</div>
+        <div class="b-icon"><i data-lucide="handshake"></i></div>
         <h3>תקשורת ושיתוף פעולה</h3>
         <p>חשיבה אפקטיבית הולכת יד ביד עם תקשורת יעילה. נלמד לבטא רעיונות בצורה ברורה ולתרום ביעילות במסגרות צוות.</p>
       </div>
@@ -317,7 +323,7 @@
     <div class="about-grid">
       <div class="about-card">
         <div class="about-photo">
-          <img src="zohar.png" alt="זוהר סלע לוי" onerror="this.parentElement.innerHTML='👩'" />
+          <img src="zohar.png" alt="זוהר סלע לוי" onerror="this.style.display='none'" />
         </div>
         <h3>זוהר סלע לוי</h3>
         <p class="role">יועצת ארגונית MA | רס"ן במיל'</p>
@@ -370,5 +376,7 @@
   <p class="footer-copy">© 2026 טווים חשיבה | זוהר סלע לוי</p>
 </footer>
 
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>lucide.createIcons({attrs:{strokeWidth:1.6}});</script>
 </body>
 </html>

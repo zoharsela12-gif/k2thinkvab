@@ -65,6 +65,8 @@
     .what-q { font-size:1.2rem; font-weight:900; margin-bottom:22px; line-height:1.35; }
     .what-items { display:flex; flex-direction:column; gap:10px; }
     .what-item { background:var(--white); border-radius:14px; padding:14px 16px; display:flex; align-items:center; gap:10px; font-size:.9rem; font-weight:600; }
+    .what-item span { width:28px; height:28px; display:flex; align-items:center; justify-content:center; border-radius:8px; background:rgba(245,200,122,.4); flex-shrink:0; }
+    .what-item span svg { width:14px; height:14px; }
 
     .how { background:var(--light); }
     .how-steps { display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin-top:52px; border:2px solid var(--border); border-radius:var(--r-lg); overflow:hidden; }
@@ -81,7 +83,11 @@
     .benefits { background:var(--white); }
     .benefits-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:48px; }
     .benefit-card { background:var(--light); border-radius:var(--r); padding:28px 22px; }
-    .b-icon { font-size:2rem; margin-bottom:14px; }
+    .b-icon { width:44px; height:44px; display:flex; align-items:center; justify-content:center; border-radius:12px; margin-bottom:14px; }
+    .b-icon svg { width:22px; height:22px; }
+    .benefit-card:nth-child(3n+1) .b-icon { background:rgba(168,224,220,.4); }
+    .benefit-card:nth-child(3n+2) .b-icon { background:rgba(197,184,232,.4); }
+    .benefit-card:nth-child(3n+3) .b-icon { background:rgba(212,232,74,.45); }
     .benefit-card h3 { font-size:.98rem; font-weight:800; margin-bottom:8px; }
     .benefit-card p { font-size:.87rem; color:var(--muted); line-height:1.6; }
 
@@ -89,7 +95,9 @@
     .format-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:48px; }
     .format-card { background:var(--white); border-radius:var(--r); padding:32px 24px; text-align:center; border:1.5px dashed var(--border); transition:border-color .2s; }
     .format-card:hover { border-color:var(--lav-d,#a898d0); }
-    .f-icon { font-size:2.2rem; margin-bottom:14px; }
+    .f-icon { width:48px; height:48px; display:flex; align-items:center; justify-content:center; border-radius:13px; margin:0 auto 14px; background:var(--lav); }
+    .f-icon svg { width:24px; height:24px; }
+    .float-item svg { width:14px; height:14px; vertical-align:middle; margin-left:4px; }
     .format-card h3 { font-size:1rem; font-weight:800; margin-bottom:8px; }
     .format-card p { font-size:.87rem; color:var(--muted); line-height:1.6; }
     .f-pill { display:inline-block; margin-top:14px; background:var(--lav); border-radius:50px; padding:5px 16px; font-size:.75rem; font-weight:700; }
@@ -152,7 +160,7 @@
   <div class="hero-inner">
     <div>
       <div class="breadcrumb"><a href="sadnaot.html">סדנאות</a> <span>/</span> צוות חושב</div>
-      <div class="hero-tag">🧩 סדנת צוות חושב</div>
+      <div class="hero-tag">סדנת צוות חושב</div>
       <h1>צוות<br/>חושב</h1>
       <p class="hero-desc">סדנה לפרודוקטיביות קבוצתית. דרך משחק קופסה ייחודי, הצוות מתנסה בשיתוף פעולה, ניהול משאבים ופתרון בעיות בזמן אמת — וחוזר לעבודה עם כלים שמשנים את הדינמיקה.</p>
       <div class="hero-btns">
@@ -163,11 +171,11 @@
     <div class="hero-float">
       <h3>✦ מה הצוות שלכם יחווה</h3>
       <div class="float-items">
-        <div class="float-item">🎲 משחק קופסה ייחודי</div>
-        <div class="float-item">🔍 זיהוי דפוסים מעכבים</div>
-        <div class="float-item">🗣️ שיח פתוח וכנה</div>
-        <div class="float-item">🤝 בניית שפה משותפת</div>
-        <div class="float-item">⚡ כלים ליישום מיידי</div>
+        <div class="float-item"><i data-lucide="gamepad-2"></i> משחק קופסה ייחודי</div>
+        <div class="float-item"><i data-lucide="search"></i> זיהוי דפוסים מעכבים</div>
+        <div class="float-item"><i data-lucide="megaphone"></i> שיח פתוח וכנה</div>
+        <div class="float-item"><i data-lucide="handshake"></i> בניית שפה משותפת</div>
+        <div class="float-item"><i data-lucide="zap"></i> כלים ליישום מיידי</div>
       </div>
     </div>
   </div>
@@ -187,10 +195,10 @@
         <span class="deco">✦</span>
         <p class="what-q">האם הצוות שלכם עובד יחד — או סתם בו-זמנית?</p>
         <div class="what-items">
-          <div class="what-item"><span>🎯</span>מיקוד משותף על המטרה</div>
-          <div class="what-item"><span>👂</span>הקשבה אמיתית לא רק שמיעה</div>
-          <div class="what-item"><span>🔄</span>שיתוף משאבים ומידע</div>
-          <div class="what-item"><span>💪</span>אחריות הדדית לתוצאה</div>
+          <div class="what-item"><span><i data-lucide="target"></i></span>מיקוד משותף על המטרה</div>
+          <div class="what-item"><span><i data-lucide="ear"></i></span>הקשבה אמיתית לא רק שמיעה</div>
+          <div class="what-item"><span><i data-lucide="refresh-cw"></i></span>שיתוף משאבים ומידע</div>
+          <div class="what-item"><span><i data-lucide="dumbbell"></i></span>אחריות הדדית לתוצאה</div>
         </div>
       </div>
     </div>
@@ -231,12 +239,12 @@
     <h2 class="sec-title">מה הצוות מקבל</h2>
     <p class="sec-sub">תוצאות שניתן למדוד — בצוות, בתקשורת ובתוצאות העסקיות.</p>
     <div class="benefits-grid">
-      <div class="benefit-card"><div class="b-icon">👂</div><h3>הקשבה פעילה</h3><p>כלים להקשבה אמיתית — לא רק להמתין לתורך לדבר, אלא להבין את מה שנאמר.</p></div>
-      <div class="benefit-card"><div class="b-icon">🗣️</div><h3>שפה משותפת</h3><p>מושגים, כלים ופרוטוקולים משותפים שמפחיתים חיכוך ואי-הבנות.</p></div>
-      <div class="benefit-card"><div class="b-icon">⚡</div><h3>סיעור מוחות אפקטיבי</h3><p>שיטות מובנות שמוציאות את הרעיונות הטובים ביותר מכל אחד בצוות.</p></div>
-      <div class="benefit-card"><div class="b-icon">🔍</div><h3>זיהוי דפוסים</h3><p>מודעות לדפוסים שמעכבים שיתוף פעולה — ויכולת לשנות אותם.</p></div>
-      <div class="benefit-card"><div class="b-icon">🤝</div><h3>אמון ופתיחות</h3><p>חיזוק האמון בין חברי הצוות ויצירת מרחב בטוח לשיח כנה.</p></div>
-      <div class="benefit-card"><div class="b-icon">📈</div><h3>פרודוקטיביות גבוהה</h3><p>צוות שעובד יחד בצורה חכמה מגיע לתוצאות טובות יותר בפחות זמן ופחות שחיקה.</p></div>
+      <div class="benefit-card"><div class="b-icon"><i data-lucide="ear"></i></div><h3>הקשבה פעילה</h3><p>כלים להקשבה אמיתית — לא רק להמתין לתורך לדבר, אלא להבין את מה שנאמר.</p></div>
+      <div class="benefit-card"><div class="b-icon"><i data-lucide="megaphone"></i></div><h3>שפה משותפת</h3><p>מושגים, כלים ופרוטוקולים משותפים שמפחיתים חיכוך ואי-הבנות.</p></div>
+      <div class="benefit-card"><div class="b-icon"><i data-lucide="zap"></i></div><h3>סיעור מוחות אפקטיבי</h3><p>שיטות מובנות שמוציאות את הרעיונות הטובים ביותר מכל אחד בצוות.</p></div>
+      <div class="benefit-card"><div class="b-icon"><i data-lucide="search"></i></div><h3>זיהוי דפוסים</h3><p>מודעות לדפוסים שמעכבים שיתוף פעולה — ויכולת לשנות אותם.</p></div>
+      <div class="benefit-card"><div class="b-icon"><i data-lucide="handshake"></i></div><h3>אמון ופתיחות</h3><p>חיזוק האמון בין חברי הצוות ויצירת מרחב בטוח לשיח כנה.</p></div>
+      <div class="benefit-card"><div class="b-icon"><i data-lucide="trending-up"></i></div><h3>פרודוקטיביות גבוהה</h3><p>צוות שעובד יחד בצורה חכמה מגיע לתוצאות טובות יותר בפחות זמן ופחות שחיקה.</p></div>
     </div>
   </div>
 </section>
@@ -247,9 +255,9 @@
     <h2 class="sec-title">גמישות לפי הצוות</h2>
     <p class="sec-sub">הסדנה מותאמת לגודל הצוות, לאתגרים הספציפיים ולמטרות שהגדרתם.</p>
     <div class="format-grid">
-      <div class="format-card"><div class="f-icon">⏱️</div><h3>משך הסדנה</h3><p>3–5 שעות, בהתאם לגודל הצוות ולעומק הרצוי.</p><span class="f-pill">פרונטלי</span></div>
-      <div class="format-card"><div class="f-icon">🎲</div><h3>מתודולוגיה</h3><p>משחק קופסה ייחודי, רפלקציה קבוצתית, תרגולים ושיח מובנה.</p><span class="f-pill">חוויתי</span></div>
-      <div class="format-card"><div class="f-icon">👥</div><h3>למי מתאים</h3><p>כל צוות שרוצה לשפר את הדינמיקה הפנימית — מצוות ניהולי ועד צוות ביצועי.</p><span class="f-pill">מותאם אישית</span></div>
+      <div class="format-card"><div class="f-icon"><i data-lucide="clock"></i></div><h3>משך הסדנה</h3><p>3–5 שעות, בהתאם לגודל הצוות ולעומק הרצוי.</p><span class="f-pill">פרונטלי</span></div>
+      <div class="format-card"><div class="f-icon"><i data-lucide="gamepad-2"></i></div><h3>מתודולוגיה</h3><p>משחק קופסה ייחודי, רפלקציה קבוצתית, תרגולים ושיח מובנה.</p><span class="f-pill">חוויתי</span></div>
+      <div class="format-card"><div class="f-icon"><i data-lucide="users"></i></div><h3>למי מתאים</h3><p>כל צוות שרוצה לשפר את הדינמיקה הפנימית — מצוות ניהולי ועד צוות ביצועי.</p><span class="f-pill">מותאם אישית</span></div>
     </div>
   </div>
 </section>
@@ -269,5 +277,7 @@
   <div class="footer-links"><a href="yiutz.html">ייעוץ ארגוני</a><a href="sadnaot.html">סדנאות</a><a href="kurs.html">קורסים</a><a href="about.html">אודותנו</a><a href="articles.html">מאמרים</a><a href="mailto:info@k2think.com">info@k2think.com</a><a href="tel:0559562242">055-9562242</a></div>
   <p class="footer-copy">© 2026 טווים חשיבה | זוהר סלע לוי</p>
 </footer>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>lucide.createIcons({attrs:{strokeWidth:1.6}});</script>
 </body>
 </html>

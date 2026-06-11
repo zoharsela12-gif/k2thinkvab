@@ -88,7 +88,11 @@
     .for-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:48px; }
     .for-card { border:2px dashed var(--border); border-radius:var(--r); padding:32px 24px; text-align:center; transition:border-color .2s,background .2s; }
     .for-card:hover { border-color:var(--teal-d); background:var(--light); }
-    .for-icon { font-size:2.4rem; margin-bottom:14px; }
+    .for-icon { width:52px; height:52px; display:flex; align-items:center; justify-content:center; border-radius:14px; margin:0 auto 14px; }
+    .for-icon svg { width:26px; height:26px; }
+    .for-card:nth-child(1) .for-icon { background:rgba(168,224,220,.4); }
+    .for-card:nth-child(2) .for-icon { background:rgba(197,184,232,.4); }
+    .for-card:nth-child(3) .for-icon { background:rgba(212,232,74,.45); }
     .for-card h3 { font-size:.98rem; font-weight:800; margin-bottom:8px; }
     .for-card p { font-size:.86rem; color:var(--muted); line-height:1.6; }
 
@@ -96,7 +100,14 @@
     .benefits { background:var(--light); }
     .benefits-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:48px; }
     .benefit-card { background:var(--white); border-radius:var(--r); padding:28px 22px; }
-    .b-icon { font-size:2rem; margin-bottom:14px; }
+    .b-icon { width:44px; height:44px; display:flex; align-items:center; justify-content:center; border-radius:12px; margin-bottom:14px; }
+    .b-icon svg { width:22px; height:22px; }
+    .benefit-card:nth-child(3n+1) .b-icon { background:rgba(168,224,220,.4); }
+    .benefit-card:nth-child(3n+2) .b-icon { background:rgba(197,184,232,.4); }
+    .benefit-card:nth-child(3n+3) .b-icon { background:rgba(212,232,74,.45); }
+    .ov-item span { width:28px; height:28px; display:flex; align-items:center; justify-content:center; border-radius:8px; background:rgba(168,224,220,.4); flex-shrink:0; }
+    .ov-item span svg { width:14px; height:14px; }
+    .float-item svg { width:14px; height:14px; vertical-align:middle; margin-left:4px; }
     .benefit-card h3 { font-size:.98rem; font-weight:800; margin-bottom:8px; }
     .benefit-card p { font-size:.87rem; color:var(--muted); line-height:1.6; }
 
@@ -149,7 +160,7 @@
   <div class="hero-blob hero-blob-2"></div>
   <div class="hero-inner">
     <div>
-      <div class="hero-tag">🎓 קורס מנהלים</div>
+      <div class="hero-tag">קורס מנהלים</div>
       <h1>לחשוב <em>אחרת</em>,<br/>להוביל אחרת</h1>
       <p class="hero-desc">קורס עומק בן 3 מפגשים למנהלים שרוצים להוביל מתוך חשיבה מודעת, תקשורת אפקטיבית ותרבות ארגונית מאפשרת. לא עוד ניהול על אוטומט.</p>
       <div class="hero-btns">
@@ -160,10 +171,10 @@
     <div class="hero-float">
       <h3>✦ שלושה מפגשים. שינוי אמיתי.</h3>
       <div class="float-items">
-        <div class="float-item">🧠 מפגש 1: חשיבה אפקטיבית</div>
-        <div class="float-item">🎯 מפגש 2: קבלת החלטות</div>
-        <div class="float-item">👥 מפגש 3: בניית צוותים</div>
-        <div class="float-item">⚡ כלים ליישום מיידי</div>
+        <div class="float-item"><i data-lucide="brain"></i> מפגש 1: חשיבה אפקטיבית</div>
+        <div class="float-item"><i data-lucide="target"></i> מפגש 2: קבלת החלטות</div>
+        <div class="float-item"><i data-lucide="users"></i> מפגש 3: בניית צוותים</div>
+        <div class="float-item"><i data-lucide="zap"></i> כלים ליישום מיידי</div>
       </div>
     </div>
   </div>
@@ -183,10 +194,10 @@
         <span class="deco">✦</span>
         <p class="ov-q">מנהל שחושב טוב — מוביל טוב</p>
         <div class="ov-items">
-          <div class="ov-item"><span>🧠</span>מנתח מצבים מכל הזוויות</div>
-          <div class="ov-item"><span>🎯</span>מקבל החלטות מדויקות ומהירות</div>
-          <div class="ov-item"><span>💬</span>מתקשר בצורה ברורה ומשכנעת</div>
-          <div class="ov-item"><span>👥</span>בונה צוות שרוצה לעבוד עבורו</div>
+          <div class="ov-item"><span><i data-lucide="brain"></i></span>מנתח מצבים מכל הזוויות</div>
+          <div class="ov-item"><span><i data-lucide="target"></i></span>מקבל החלטות מדויקות ומהירות</div>
+          <div class="ov-item"><span><i data-lucide="message-circle"></i></span>מתקשר בצורה ברורה ומשכנעת</div>
+          <div class="ov-item"><span><i data-lucide="users"></i></span>בונה צוות שרוצה לעבוד עבורו</div>
         </div>
       </div>
     </div>
@@ -244,9 +255,9 @@
     <span class="pill pill-peach">למי מתאים</span>
     <h2 class="sec-title">הקורס מיועד ל...</h2>
     <div class="for-grid">
-      <div class="for-card"><div class="for-icon">🌱</div><h3>מנהלים חדשים</h3><p>שרוצים להתחיל נכון ולבנות בסיס חזק של מיומנויות חשיבה ניהולית מהיום הראשון.</p></div>
-      <div class="for-card"><div class="for-icon">🏆</div><h3>מנהלים מנוסים</h3><p>שרוצים לרענן, לעמיק ולפתח את הכלים שכבר יש להם — ולהגיע לרמה הבאה.</p></div>
-      <div class="for-card"><div class="for-icon">🚀</div><h3>עתידי מנהלים</h3><p>מוכשרים שעומדים לקחת תפקיד ניהולי ורוצים להתכונן עם הכלים הנכונים.</p></div>
+      <div class="for-card"><div class="for-icon"><i data-lucide="sprout"></i></div><h3>מנהלים חדשים</h3><p>שרוצים להתחיל נכון ולבנות בסיס חזק של מיומנויות חשיבה ניהולית מהיום הראשון.</p></div>
+      <div class="for-card"><div class="for-icon"><i data-lucide="trophy"></i></div><h3>מנהלים מנוסים</h3><p>שרוצים לרענן, לעמיק ולפתח את הכלים שכבר יש להם — ולהגיע לרמה הבאה.</p></div>
+      <div class="for-card"><div class="for-icon"><i data-lucide="rocket"></i></div><h3>עתידי מנהלים</h3><p>מוכשרים שעומדים לקחת תפקיד ניהולי ורוצים להתכונן עם הכלים הנכונים.</p></div>
     </div>
   </div>
 </section>
@@ -256,12 +267,12 @@
     <span class="pill pill-lime">מה תרוויחו</span>
     <h2 class="sec-title">מה יוצא מהקורס</h2>
     <div class="benefits-grid">
-      <div class="benefit-card"><div class="b-icon">🧠</div><h3>חשיבה ניהולית</h3><p>יכולת לנתח מצבים מרובי-ממד ולראות מה שמנהלים רגילים מפספסים.</p></div>
-      <div class="benefit-card"><div class="b-icon">🎯</div><h3>החלטות טובות יותר</h3><p>מסגרת מובנית לקבלת החלטות שמפחיתה טעויות ומשפרת תוצאות.</p></div>
-      <div class="benefit-card"><div class="b-icon">👥</div><h3>צוות מחויב</h3><p>כלים לבניית צוות שרוצה להצליח — לא כזה שעובד מפחד מהמנהל.</p></div>
-      <div class="benefit-card"><div class="b-icon">💬</div><h3>תקשורת מנהיגותית</h3><p>יכולת לתקשר בצורה שמניעה, משכנעת ומייצרת בהירות גם בנושאים מורכבים.</p></div>
-      <div class="benefit-card"><div class="b-icon">🌱</div><h3>תרבות ארגונית</h3><p>הבנה כיצד לבנות ולשמר תרבות של אחריות, שיתוף פעולה ופתיחות.</p></div>
-      <div class="benefit-card"><div class="b-icon">⚡</div><h3>יישום מיידי</h3><p>כלים קונקרטיים שניתן לישם כבר ביום שאחרי כל מפגש — לא רק בסיום הקורס.</p></div>
+      <div class="benefit-card"><div class="b-icon"><i data-lucide="brain"></i></div><h3>חשיבה ניהולית</h3><p>יכולת לנתח מצבים מרובי-ממד ולראות מה שמנהלים רגילים מפספסים.</p></div>
+      <div class="benefit-card"><div class="b-icon"><i data-lucide="target"></i></div><h3>החלטות טובות יותר</h3><p>מסגרת מובנית לקבלת החלטות שמפחיתה טעויות ומשפרת תוצאות.</p></div>
+      <div class="benefit-card"><div class="b-icon"><i data-lucide="users"></i></div><h3>צוות מחויב</h3><p>כלים לבניית צוות שרוצה להצליח — לא כזה שעובד מפחד מהמנהל.</p></div>
+      <div class="benefit-card"><div class="b-icon"><i data-lucide="message-circle"></i></div><h3>תקשורת מנהיגותית</h3><p>יכולת לתקשר בצורה שמניעה, משכנעת ומייצרת בהירות גם בנושאים מורכבים.</p></div>
+      <div class="benefit-card"><div class="b-icon"><i data-lucide="sprout"></i></div><h3>תרבות ארגונית</h3><p>הבנה כיצד לבנות ולשמר תרבות של אחריות, שיתוף פעולה ופתיחות.</p></div>
+      <div class="benefit-card"><div class="b-icon"><i data-lucide="zap"></i></div><h3>יישום מיידי</h3><p>כלים קונקרטיים שניתן לישם כבר ביום שאחרי כל מפגש — לא רק בסיום הקורס.</p></div>
     </div>
   </div>
 </section>
@@ -281,5 +292,7 @@
   <div class="footer-links"><a href="yiutz.html">ייעוץ ארגוני</a><a href="sadnaot.html">סדנאות</a><a href="kurs.html">קורסים</a><a href="about.html">אודותנו</a><a href="articles.html">מאמרים</a><a href="mailto:info@k2think.com">info@k2think.com</a><a href="tel:0559562242">055-9562242</a></div>
   <p class="footer-copy">© 2026 טווים חשיבה | זוהר סלע לוי</p>
 </footer>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>lucide.createIcons({attrs:{strokeWidth:1.6}});</script>
 </body>
 </html>

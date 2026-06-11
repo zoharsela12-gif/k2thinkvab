@@ -63,7 +63,8 @@
     .why-q { font-size:1.35rem; font-weight:900; margin-bottom:24px; line-height:1.35; }
     .why-items { display:flex; flex-direction:column; gap:10px; }
     .why-item { background:var(--white); border-radius:14px; padding:14px 18px; display:flex; align-items:center; gap:12px; font-size:.9rem; font-weight:600; }
-    .w-icon { font-size:1.3rem; flex-shrink:0; }
+    .w-icon { width:30px; height:30px; display:flex; align-items:center; justify-content:center; border-radius:8px; background:rgba(0,0,0,.08); flex-shrink:0; }
+    .w-icon svg { width:15px; height:15px; }
     .why-text p { font-size:1rem; color:var(--muted); line-height:1.85; margin-bottom:16px; }
 
     /* WORKSHOPS GRID */
@@ -76,7 +77,8 @@
     .wc-2 .wc-accent { background:var(--lav); }
     .wc-3 .wc-accent { background:var(--lime); }
     .wc-4 .wc-accent { background:var(--peach); }
-    .wc-icon { font-size:2.6rem; margin-bottom:18px; }
+    .wc-icon { width:52px; height:52px; display:flex; align-items:center; justify-content:center; border-radius:14px; background:rgba(255,255,255,.5); margin-bottom:18px; }
+    .wc-icon svg { width:26px; height:26px; }
     .workshop-card h3 { font-size:1.2rem; font-weight:900; margin-bottom:8px; }
     .workshop-card p { font-size:.9rem; color:var(--muted); line-height:1.7; margin-bottom:20px; }
     .wc-pill { display:inline-block; border-radius:50px; padding:5px 14px; font-size:.75rem; font-weight:700; margin-left:8px; }
@@ -170,10 +172,10 @@
         <span class="deco">✦</span>
         <p class="why-q">למה ללמוד דרך משחק?</p>
         <div class="why-items">
-          <div class="why-item"><span class="w-icon">🛡️</span>המחסומים וההגנות יורדים</div>
-          <div class="why-item"><span class="w-icon">🔬</span>חושפים דפוסי עבודה מעכבים</div>
-          <div class="why-item"><span class="w-icon">🧪</span>מנסים חלופות חדשות בסביבה בטוחה</div>
-          <div class="why-item"><span class="w-icon">💪</span>נוצרת מחוייבות פנימית עמוקה לשינוי</div>
+          <div class="why-item"><span class="w-icon"><i data-lucide="shield"></i></span>המחסומים וההגנות יורדים</div>
+          <div class="why-item"><span class="w-icon"><i data-lucide="microscope"></i></span>חושפים דפוסי עבודה מעכבים</div>
+          <div class="why-item"><span class="w-icon"><i data-lucide="flask-conical"></i></span>מנסים חלופות חדשות בסביבה בטוחה</div>
+          <div class="why-item"><span class="w-icon"><i data-lucide="dumbbell"></i></span>נוצרת מחוייבות פנימית עמוקה לשינוי</div>
         </div>
       </div>
       <div class="why-text">
@@ -195,7 +197,7 @@
     <div class="workshops-grid">
       <a href="sadna-kobaat.html" class="workshop-card wc-1">
         <div class="wc-accent"></div>
-        <div class="wc-icon">🎩</div>
+        <div class="wc-icon"><i data-lucide="sparkles"></i></div>
         <h3>כובעי החשיבה</h3>
         <p>הכלי המפורסם בעולם לניהול דיונים וקבלת החלטות. נלמד להפריד בין רגש, עובדות, סיכונים ויצירתיות כדי להגיע להחלטות חדות ומאוזנות יותר.</p>
         <span class="wc-pill">קבלת החלטות</span>
@@ -203,7 +205,7 @@
       </a>
       <a href="sadna-tzevet.html" class="workshop-card wc-2">
         <div class="wc-accent"></div>
-        <div class="wc-icon">🧩</div>
+        <div class="wc-icon"><i data-lucide="puzzle"></i></div>
         <h3>צוות חושב</h3>
         <p>סדנה לפרודוקטיביות קבוצתית. דרך משחק קופסה ייחודי, הצוות מתנסה בשיתוף פעולה, ניהול משאבים ופתרון בעיות בזמן אמת.</p>
         <span class="wc-pill">עבודת צוות</span>
@@ -211,7 +213,7 @@
       </a>
       <a href="sadna-mapa.html" class="workshop-card wc-3">
         <div class="wc-accent"></div>
-        <div class="wc-icon">🗺️</div>
+        <div class="wc-icon"><i data-lucide="map"></i></div>
         <h3>מפת חשיבה</h3>
         <p>לחשוב נכון, לפעול מדויק. כלי ויזואלי לניהול פרויקטים, סיעור מוחות וארגון מחשבות שחוסך זמן וממקסם את היכולת הקוגניטיבית.</p>
         <span class="wc-pill">ניהול פרויקטים</span>
@@ -219,7 +221,7 @@
       </a>
       <a href="sadna-pitaron.html" class="workshop-card wc-4">
         <div class="wc-accent"></div>
-        <div class="wc-icon">🔑</div>
+        <div class="wc-icon"><i data-lucide="key"></i></div>
         <h3>סדנת פתרון</h3>
         <p>חשיבה מתקדמת ליצירת חלופות. איך יוצאים מה"פלונטר" ומוצאים פתרונות חדשניים במקום שבו אחרים רואים רק חסמים.</p>
         <span class="wc-pill">פתרון בעיות</span>
@@ -259,5 +261,7 @@
   <p class="footer-copy">© 2026 טווים חשיבה | זוהר סלע לוי</p>
 </footer>
 
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>lucide.createIcons({attrs:{strokeWidth:1.6}});</script>
 </body>
 </html>

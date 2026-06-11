@@ -149,7 +149,8 @@
       background: var(--light); border-radius: 12px; padding: 12px 14px;
       font-size: .88rem; font-weight: 600; line-height: 1.4;
     }
-    .c-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
+    .c-icon { width:28px; height:28px; flex-shrink:0; display:flex; align-items:center; justify-content:center; border-radius:8px; background:rgba(168,224,220,.35); margin-top:1px; }
+    .c-icon svg { width:15px; height:15px; }
     .hero-float-cta {
       margin-top: 20px; padding: 12px; border-radius: 12px;
       background: var(--lime); text-align: center;
@@ -202,7 +203,12 @@
     .problem-card:nth-child(3) { border-color: var(--peach); }
     .problem-card:nth-child(4) { border-color: var(--lime); }
     .problem-card:hover { transform: translateY(-4px); }
-    .p-icon { font-size: 2rem; margin-bottom: 14px; }
+    .p-icon { width:48px; height:48px; display:flex; align-items:center; justify-content:center; border-radius:13px; margin-bottom:14px; }
+    .p-icon svg { width:24px; height:24px; }
+    .problem-card:nth-child(1) .p-icon { background:rgba(197,184,232,.4); }
+    .problem-card:nth-child(2) .p-icon { background:rgba(168,224,220,.4); }
+    .problem-card:nth-child(3) .p-icon { background:rgba(245,200,122,.4); }
+    .problem-card:nth-child(4) .p-icon { background:rgba(212,232,74,.4); }
     .problem-card h3 { font-size: 1rem; font-weight: 800; margin-bottom: 8px; }
     .problem-card p { font-size: .88rem; color: var(--muted); line-height: 1.65; }
 
@@ -305,7 +311,11 @@
       border-radius: var(--r);
       padding: 28px 22px; text-align: center;
     }
-    .r-icon { font-size: 2.2rem; margin-bottom: 12px; }
+    .r-icon { width:48px; height:48px; display:flex; align-items:center; justify-content:center; border-radius:13px; margin:0 auto 12px; }
+    .r-icon svg { width:24px; height:24px; }
+    .result-card:nth-child(3n+1) .r-icon { background:rgba(168,224,220,.4); }
+    .result-card:nth-child(3n+2) .r-icon { background:rgba(197,184,232,.4); }
+    .result-card:nth-child(3n+3) .r-icon { background:rgba(212,232,74,.45); }
     .result-card h3 { font-size: .95rem; font-weight: 800; margin-bottom: 6px; }
     .result-card p { font-size: .82rem; color: var(--muted); line-height: 1.55; }
 
@@ -322,7 +332,11 @@
       transition: border-color .2s, background .2s;
     }
     .for-card:hover { border-color: var(--teal-d); background: var(--light); }
-    .for-icon { font-size: 2.4rem; margin-bottom: 14px; }
+    .for-icon { width:52px; height:52px; display:flex; align-items:center; justify-content:center; border-radius:14px; margin:0 auto 14px; }
+    .for-icon svg { width:26px; height:26px; }
+    .for-card:nth-child(1) .for-icon { background:rgba(168,224,220,.4); }
+    .for-card:nth-child(2) .for-icon { background:rgba(197,184,232,.4); }
+    .for-card:nth-child(3) .for-icon { background:rgba(212,232,74,.45); }
     .for-card h3 { font-size: .98rem; font-weight: 800; margin-bottom: 8px; }
     .for-card p { font-size: .86rem; color: var(--muted); line-height: 1.6; }
 
@@ -490,10 +504,10 @@
     <div class="hero-float">
       <p class="hero-float-title">✦ האתגרים שאנחנו פותרים</p>
       <div class="challenge-list">
-        <div class="challenge-item"><span class="c-icon">🔄</span>תהליכי שינוי שתקועים באמצע</div>
-        <div class="challenge-item"><span class="c-icon">💬</span>תקשורת לא אפקטיבית בין צוותים</div>
-        <div class="challenge-item"><span class="c-icon">🎯</span>יעדים שלא מתורגמים לפעולה</div>
-        <div class="challenge-item"><span class="c-icon">🧩</span>פערים בין שכבות הארגון</div>
+        <div class="challenge-item"><span class="c-icon"><i data-lucide="refresh-cw"></i></span>תהליכי שינוי שתקועים באמצע</div>
+        <div class="challenge-item"><span class="c-icon"><i data-lucide="message-circle"></i></span>תקשורת לא אפקטיבית בין צוותים</div>
+        <div class="challenge-item"><span class="c-icon"><i data-lucide="target"></i></span>יעדים שלא מתורגמים לפעולה</div>
+        <div class="challenge-item"><span class="c-icon"><i data-lucide="puzzle"></i></span>פערים בין שכבות הארגון</div>
       </div>
       <a href="#contact" class="hero-float-cta">בואו נדבר על הארגון שלכם ←</a>
     </div>
@@ -508,22 +522,22 @@
     <p class="sec-sub">ארגונים רבים מזהים שמשהו לא עובד — אבל לא תמיד יודעים בדיוק מה, ובמיוחד איך לשנות את זה באמת.</p>
     <div class="problem-grid">
       <div class="problem-card">
-        <div class="p-icon">🗣️</div>
+        <div class="p-icon"><i data-lucide="megaphone"></i></div>
         <h3>כולם מדברים, אף אחד לא שומע</h3>
         <p>ישיבות שמסתיימות ללא החלטות, שיח שמתנהל בו-זמנית, ודעות שלא מקבלות ביטוי — גם אצל האנשים החכמים ביותר בחדר.</p>
       </div>
       <div class="problem-card">
-        <div class="p-icon">📋</div>
+        <div class="p-icon"><i data-lucide="clipboard-list"></i></div>
         <h3>תוכניות שנשארות על הנייר</h3>
         <p>כמה פעמים בניתם תוכנית אסטרטגית מרשימה שלא הובילה לשינוי אמיתי? הבעיה לא תמיד בתוכנית — אלא בדרך שבה חושבים עליה יחד.</p>
       </div>
       <div class="problem-card">
-        <div class="p-icon">🧱</div>
+        <div class="p-icon"><i data-lucide="layers"></i></div>
         <h3>פערים בין שכבות הארגון</h3>
         <p>ההנהלה חושבת אחד, הצוותים חווים אחרת, והמנהלים באמצע מנסים לגשר — בלי כלים אמיתיים לעשות את זה.</p>
       </div>
       <div class="problem-card">
-        <div class="p-icon">⏳</div>
+        <div class="p-icon"><i data-lucide="clock"></i></div>
         <h3>שינוי שלוקח יותר מדי זמן</h3>
         <p>תהליכי ייעוץ ארוכים שמייצרים תלות יועץ, ולא מצוידים את הארגון לפעול עצמאית. אנחנו עושים את זה אחרת.</p>
       </div>
@@ -625,22 +639,22 @@
     <p class="sec-sub">תוצאות מוחשיות שניתן ליישם מהיום שאחרי.</p>
     <div class="results-grid">
       <div class="result-card">
-        <div class="r-icon">🗺️</div>
+        <div class="r-icon"><i data-lucide="map"></i></div>
         <h3>תוכנית פעולה ברורה</h3>
         <p>לא מצגת, לא דוח — תוכנית שהצוות בנה יחד ומחוייב אליה.</p>
       </div>
       <div class="result-card">
-        <div class="r-icon">💬</div>
+        <div class="r-icon"><i data-lucide="message-circle"></i></div>
         <h3>שפה ארגונית משותפת</h3>
         <p>כלים לתקשורת פנים-ארגונית ברורה יותר, עם פחות פרשנויות שגויות.</p>
       </div>
       <div class="result-card">
-        <div class="r-icon">🤝</div>
+        <div class="r-icon"><i data-lucide="handshake"></i></div>
         <h3>אחריות משותפת</h3>
         <p>כשכולם חלק מהפתרון, כולם מחוייבים לביצוע. פחות "זה לא האחריות שלי".</p>
       </div>
       <div class="result-card">
-        <div class="r-icon">📈</div>
+        <div class="r-icon"><i data-lucide="trending-up"></i></div>
         <h3>תרבות ארגונית פתוחה</h3>
         <p>שינוי תרבותי שמתחיל מבפנים — ומחזיק לאורך זמן גם אחרי סיום התהליך.</p>
       </div>
@@ -656,17 +670,17 @@
     <p class="sec-sub">התהליך מתאים לכל ארגון שרוצה שינוי אמיתי — לא עוד ייעוץ שמסתיים במצגת.</p>
     <div class="for-grid">
       <div class="for-card">
-        <div class="for-icon">🏢</div>
+        <div class="for-icon"><i data-lucide="building-2"></i></div>
         <h3>חברות וארגונים עסקיים</h3>
         <p>שרוצים לשפר תהליכי עבודה, לחזק שיתוף פעולה ולהוביל שינוי מהיר ומשמעותי.</p>
       </div>
       <div class="for-card">
-        <div class="for-icon">👥</div>
+        <div class="for-icon"><i data-lucide="users"></i></div>
         <h3>צוותים ניהוליים</h3>
         <p>שנדרשים לקבל החלטות מורכבות יחד, ורוצים כלי לניהול שיח אפקטיבי ומוכוון תוצאות.</p>
       </div>
       <div class="for-card">
-        <div class="for-icon">🌱</div>
+        <div class="for-icon"><i data-lucide="sprout"></i></div>
         <h3>ארגונים בשינוי</h3>
         <p>שעוברים מיזוג, צמיחה, שינוי מבנה, או מעבר תרבותי — ורוצים להוביל את זה נכון.</p>
       </div>
@@ -765,5 +779,7 @@
     });
   });
 </script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>lucide.createIcons({attrs:{strokeWidth:1.6}});</script>
 </body>
 </html>

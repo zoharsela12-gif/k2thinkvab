@@ -61,7 +61,13 @@
     .quote-box cite { font-size:.82rem; color:var(--muted); font-style:normal; font-weight:600; }
     .story-right { display:flex; flex-direction:column; gap:20px; padding-top:8px; }
     .highlight-card { background:var(--light); border-radius:var(--r); padding:28px 24px; }
-    .highlight-card h3 { font-size:1rem; font-weight:800; margin-bottom:10px; }
+    .highlight-card h3 { font-size:1rem; font-weight:800; margin-bottom:10px; display:flex; align-items:center; gap:10px; }
+    .hc-icon { width:30px; height:30px; display:flex; align-items:center; justify-content:center; border-radius:8px; flex-shrink:0; }
+    .hc-icon svg { width:16px; height:16px; }
+    .highlight-card:nth-child(1) .hc-icon { background:var(--teal); }
+    .highlight-card:nth-child(2) .hc-icon { background:var(--lav); }
+    .highlight-card:nth-child(3) .hc-icon { background:var(--lime); }
+    .highlight-card:nth-child(4) .hc-icon { background:var(--peach); }
     .highlight-card p { font-size:.9rem; color:var(--muted); line-height:1.7; }
 
     /* MISSION */
@@ -75,7 +81,8 @@
     .mission-text p strong { font-weight:800; }
     .values-list { display:flex; flex-direction:column; gap:16px; }
     .value-item { background:rgba(255,255,255,.5); border-radius:var(--r); padding:20px 22px; display:flex; gap:14px; align-items:flex-start; }
-    .v-icon { font-size:1.5rem; flex-shrink:0; }
+    .v-icon { width:38px; height:38px; display:flex; align-items:center; justify-content:center; border-radius:10px; flex-shrink:0; background:rgba(255,255,255,.5); }
+    .v-icon svg { width:20px; height:20px; }
     .value-item h4 { font-size:.95rem; font-weight:800; margin-bottom:4px; }
     .value-item p { font-size:.87rem; color:rgba(26,26,26,.7); line-height:1.55; margin:0; }
 
@@ -96,7 +103,11 @@
     .aud-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:48px; }
     .aud-card { border:2px dashed var(--border); border-radius:var(--r); padding:32px 24px; text-align:center; transition:border-color .2s,background .2s; }
     .aud-card:hover { border-color:var(--teal-d); background:var(--light); }
-    .aud-icon { font-size:2.4rem; margin-bottom:14px; }
+    .aud-icon { width:52px; height:52px; display:flex; align-items:center; justify-content:center; border-radius:14px; margin:0 auto 14px; }
+    .aud-icon svg { width:26px; height:26px; }
+    .aud-card:nth-child(1) .aud-icon { background:rgba(168,224,220,.4); }
+    .aud-card:nth-child(2) .aud-icon { background:rgba(197,184,232,.4); }
+    .aud-card:nth-child(3) .aud-icon { background:rgba(212,232,74,.45); }
     .aud-card h3 { font-size:.98rem; font-weight:800; margin-bottom:8px; }
     .aud-card p { font-size:.86rem; color:var(--muted); line-height:1.6; }
 
@@ -156,7 +167,7 @@
     </div>
     <div class="about-card">
       <div class="about-photo">
-        <img src="zohar.png" alt="זוהר סלע לוי" onerror="this.parentElement.innerHTML='👩'" />
+        <img src="zohar.png" alt="זוהר סלע לוי" onerror="this.style.display='none'" />
       </div>
       <h3>זוהר סלע לוי</h3>
       <p class="role">יועצת ארגונית MA<br/>רס"ן במיל' | מנחת סדנאות</p>
@@ -187,19 +198,19 @@
       </div>
       <div class="story-right">
         <div class="highlight-card">
-          <h3>🎓 השכלה והכשרה</h3>
+          <h3><span class="hc-icon"><i data-lucide="graduation-cap"></i></span> השכלה והכשרה</h3>
           <p>תואר שני (MA) בייעוץ ארגוני. הכשרות בכובעי החשיבה של דה בונו, אימון אישי ועסקי, ותהליכים קהילתיים.</p>
         </div>
         <div class="highlight-card">
-          <h3>🏅 ניסיון</h3>
+          <h3><span class="hc-icon"><i data-lucide="medal"></i></span> ניסיון</h3>
           <p>רס"ן במיל' עם ניסיון רב בניהול וייעוץ. ליווי עשרות ארגונים, צוותים ומנהלים בתהליכי שינוי ופיתוח.</p>
         </div>
         <div class="highlight-card">
-          <h3>💡 הגישה</h3>
+          <h3><span class="hc-icon"><i data-lucide="lightbulb"></i></span> הגישה</h3>
           <p>למידה חווייתית שמשאירה חותם. לא הרצאות — אלא מרחבים לחווייה, תרגול ושינוי אמיתי.</p>
         </div>
         <div class="highlight-card">
-          <h3>🌍 קהלים</h3>
+          <h3><span class="hc-icon"><i data-lucide="globe"></i></span> קהלים</h3>
           <p>ארגונים עסקיים, מוסדות חינוך, ארגוני נוער, צוותים ניהוליים ואנשים פרטיים שרוצים לפרוץ קדימה.</p>
         </div>
       </div>
@@ -219,15 +230,15 @@
       </div>
       <div class="values-list">
         <div class="value-item">
-          <span class="v-icon">⭐</span>
+          <span class="v-icon"><i data-lucide="star"></i></span>
           <div><h4>מצוינות חווייתית</h4><p>אנו מחויבות לסדנאות המעוררות השראה ועולות על ציפיות הלקוח.</p></div>
         </div>
         <div class="value-item">
-          <span class="v-icon">🚀</span>
+          <span class="v-icon"><i data-lucide="rocket"></i></span>
           <div><h4>מיצוי פוטנציאל</h4><p>אנו מעצימות את המשתתפים לנצל את מלוא היכולות הקוגניטיביות שלהם דרך כוח החשיבה.</p></div>
         </div>
         <div class="value-item">
-          <span class="v-icon">🤝</span>
+          <span class="v-icon"><i data-lucide="handshake"></i></span>
           <div><h4>שיתופיות וריבוי דעות</h4><p>אנו מטפחות סביבה מכילה המעריכה נקודות מבט מגוונות כבסיס לעבודת צוות מנצחת.</p></div>
         </div>
       </div>
@@ -254,9 +265,9 @@
     <h2 class="sec-title">עם מי אנחנו עובדות</h2>
     <p class="sec-sub">אנו משרתות מגוון רחב של לקוחות — מעסקים ועד מוסדות חינוך וארגוני נוער.</p>
     <div class="aud-grid">
-      <div class="aud-card"><div class="aud-icon">🏢</div><h3>ארגונים עסקיים</h3><p>גישה מותאמת לשיפור חשיבה אסטרטגית, טיפוח יצירתיות וקבלת החלטות חדה.</p></div>
-      <div class="aud-card"><div class="aud-icon">👔</div><h3>מנהלים ומנהיגים</h3><p>פיתוח מיומנויות ניהול מבוססות חשיבה שמשפרות תוצאות ותרבות ארגונית.</p></div>
-      <div class="aud-card"><div class="aud-icon">🎓</div><h3>מוסדות חינוך</h3><p>סדנאות לפיתוח חשיבה ביקורתית ויצירתית לסטודנטים ואנשי חינוך.</p></div>
+      <div class="aud-card"><div class="aud-icon"><i data-lucide="building-2"></i></div><h3>ארגונים עסקיים</h3><p>גישה מותאמת לשיפור חשיבה אסטרטגית, טיפוח יצירתיות וקבלת החלטות חדה.</p></div>
+      <div class="aud-card"><div class="aud-icon"><i data-lucide="briefcase"></i></div><h3>מנהלים ומנהיגים</h3><p>פיתוח מיומנויות ניהול מבוססות חשיבה שמשפרות תוצאות ותרבות ארגונית.</p></div>
+      <div class="aud-card"><div class="aud-icon"><i data-lucide="graduation-cap"></i></div><h3>מוסדות חינוך</h3><p>סדנאות לפיתוח חשיבה ביקורתית ויצירתית לסטודנטים ואנשי חינוך.</p></div>
     </div>
   </div>
 </section>
@@ -276,5 +287,7 @@
   <div class="footer-links"><a href="yiutz.html">ייעוץ ארגוני</a><a href="sadnaot.html">סדנאות</a><a href="kurs.html">קורסים</a><a href="about.html">אודותנו</a><a href="articles.html">מאמרים</a><a href="mailto:info@k2think.com">info@k2think.com</a><a href="tel:0559562242">055-9562242</a></div>
   <p class="footer-copy">© 2026 טווים חשיבה | זוהר סלע לוי</p>
 </footer>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>lucide.createIcons({attrs:{strokeWidth:1.6}});</script>
 </body>
 </html>
