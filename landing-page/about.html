@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>אודותנו | טווים חשיבה</title>
+  <meta name="description" content="אודות טווים חשיבה וזוהר סלע לוי – יועצת ארגונית MA, מתמחה בסדנאות חשיבה, ייעוץ ארגוני ופיתוח מנהלים." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --teal:#a8e0dc; --teal-d:#72c4be; --lav:#c5b8e8; --lime:#d4e84a; --lime-d:#b8cc20; --peach:#f5c87a; --white:#ffffff; --text:#1a1a1a; --muted:#5a5a5a; --light:#f6f6f4; --border:#e0e0e0; --r:20px; --r-lg:32px; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Heebo',sans-serif; background:var(--white); color:var(--text); line-height:1.7; overflow-x:hidden; }
+    nav { position:fixed; top:0; width:100%; z-index:100; background:rgba(255,255,255,0.96); backdrop-filter:blur(14px); border-bottom:1px solid var(--border); padding:0 52px; height:66px; display:flex; align-items:center; justify-content:space-between; }
+    .logo { font-size:1.1rem; font-weight:400; color:var(--text); text-decoration:none; border:2px solid var(--text); padding:5px 14px; border-radius:10px; }
+    .logo strong { font-weight:900; }
+    .nav-links { display:flex; gap:24px; list-style:none; font-size:.88rem; font-weight:500; }
+    .nav-links a { color:var(--text); text-decoration:none; transition:opacity .2s; }
+    .nav-links a:hover { opacity:.55; }
+    .nav-cta { background:var(--lime); color:var(--text); padding:9px 22px; border-radius:50px; font-weight:700; font-size:.88rem; text-decoration:none; transition:background .2s; white-space:nowrap; }
+    .nav-cta:hover { background:var(--lime-d); }
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
+    .hamburger span { display:block; width:24px; height:2px; background:var(--text); border-radius:2px; }
+    .mobile-menu { display:none; position:fixed; top:66px; left:0; right:0; background:rgba(255,255,255,.98); backdrop-filter:blur(12px); border-bottom:1px solid var(--border); padding:20px 24px; z-index:99; flex-direction:column; gap:4px; }
+    .mobile-menu.open { display:flex; }
+    .mobile-menu a { color:var(--text); text-decoration:none; font-size:1rem; font-weight:600; padding:12px 0; border-bottom:1px solid var(--border); }
+    .mobile-menu a:last-child { border-bottom:none; }
+    section { padding:100px 52px; }
+    .container { max-width:1080px; margin:0 auto; }
+    .pill { display:inline-block; border-radius:50px; padding:5px 18px; font-size:.78rem; font-weight:700; letter-spacing:.8px; margin-bottom:16px; }
+    .pill-lav { background:var(--lav); } .pill-lime { background:var(--lime); } .pill-teal { background:var(--teal); } .pill-white { background:rgba(255,255,255,.6); }
+    .sec-title { font-size:clamp(2rem,3.8vw,3rem); font-weight:900; line-height:1.18; letter-spacing:-.8px; margin-bottom:18px; }
+    .sec-sub { font-size:1rem; color:var(--muted); max-width:540px; line-height:1.85; }
+
+    /* HERO */
+    .hero { background:var(--lav); padding:148px 52px 100px; position:relative; overflow:hidden; }
+    .hero-blob { position:absolute; border-radius:50%; pointer-events:none; }
+    .hero-blob-1 { width:600px; height:600px; background:var(--teal); opacity:.2; top:-200px; left:-180px; }
+    .hero-blob-2 { width:350px; height:350px; background:var(--lime); opacity:.2; bottom:-100px; right:60px; }
+    .hero-inner { position:relative; z-index:1; max-width:1080px; margin:0 auto; display:grid; grid-template-columns:1fr 340px; gap:64px; align-items:center; }
+    .hero-tag { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.55); border-radius:50px; padding:6px 18px; font-size:.8rem; font-weight:700; letter-spacing:.8px; margin-bottom:22px; }
+    .hero h1 { font-size:clamp(2.6rem,5vw,4rem); font-weight:900; line-height:1.12; letter-spacing:-1.5px; margin-bottom:20px; }
+    .hero-desc { font-size:1.05rem; color:rgba(26,26,26,.75); line-height:1.85; max-width:480px; }
+    .about-card { background:var(--white); border-radius:var(--r-lg); padding:32px 28px; box-shadow:0 16px 48px rgba(0,0,0,.1); text-align:center; }
+    .about-photo { width:100%; aspect-ratio:1; border-radius:var(--r); background:var(--teal); display:flex; align-items:center; justify-content:center; font-size:5rem; margin-bottom:20px; overflow:hidden; }
+    .about-photo img { width:100%; height:100%; object-fit:cover; object-position:center top; }
+    .about-card h3 { font-size:1.25rem; font-weight:900; margin-bottom:4px; }
+    .about-card .role { font-size:.84rem; color:var(--muted); font-weight:500; margin-bottom:18px; line-height:1.5; }
+    .tag-row { display:flex; flex-wrap:wrap; gap:7px; justify-content:center; }
+    .tag { background:var(--lav); border-radius:50px; padding:5px 13px; font-size:.75rem; font-weight:700; }
+
+    /* STORY */
+    .story { background:var(--white); }
+    .story-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; }
+    .story-text p { font-size:1rem; color:var(--muted); line-height:1.9; margin-bottom:18px; }
+    .story-text p strong { color:var(--text); font-weight:800; }
+    .quote-box { background:var(--lav); border-radius:var(--r); padding:28px 32px; margin-top:32px; border-right:4px solid var(--text); }
+    .quote-box p { font-size:1.1rem; font-weight:800; line-height:1.5; margin-bottom:8px; }
+    .quote-box cite { font-size:.82rem; color:var(--muted); font-style:normal; font-weight:600; }
+    .story-right { display:flex; flex-direction:column; gap:20px; padding-top:8px; }
+    .highlight-card { background:var(--light); border-radius:var(--r); padding:28px 24px; }
+    .highlight-card h3 { font-size:1rem; font-weight:800; margin-bottom:10px; }
+    .highlight-card p { font-size:.9rem; color:var(--muted); line-height:1.7; }
+
+    /* MISSION */
+    .mission { background:var(--teal); position:relative; overflow:hidden; }
+    .mission .deco { position:absolute; font-size:2rem; opacity:.25; }
+    .mission .deco:nth-child(1) { top:40px; left:52px; transform:rotate(15deg); }
+    .mission .deco:nth-child(2) { bottom:50px; right:80px; transform:rotate(-20deg); }
+    .mission .container { position:relative; z-index:1; }
+    .mission-grid { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; }
+    .mission-text p { font-size:1.05rem; color:rgba(26,26,26,.8); line-height:1.9; margin-bottom:16px; }
+    .mission-text p strong { font-weight:800; }
+    .values-list { display:flex; flex-direction:column; gap:16px; }
+    .value-item { background:rgba(255,255,255,.5); border-radius:var(--r); padding:20px 22px; display:flex; gap:14px; align-items:flex-start; }
+    .v-icon { font-size:1.5rem; flex-shrink:0; }
+    .value-item h4 { font-size:.95rem; font-weight:800; margin-bottom:4px; }
+    .value-item p { font-size:.87rem; color:rgba(26,26,26,.7); line-height:1.55; margin:0; }
+
+    /* HOW */
+    .how { background:var(--light); }
+    .how-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:52px; }
+    .how-card { background:var(--white); border-radius:var(--r-lg); padding:36px 28px; position:relative; overflow:hidden; }
+    .how-card:nth-child(1) { background:var(--teal); }
+    .how-card:nth-child(2) { background:var(--lav); }
+    .how-card:nth-child(3) { background:var(--lime); }
+    .how-deco { position:absolute; top:16px; left:16px; font-size:1.2rem; opacity:.35; }
+    .how-n { font-size:3.5rem; font-weight:900; color:rgba(0,0,0,.1); line-height:1; margin-bottom:12px; }
+    .how-card h3 { font-size:1.1rem; font-weight:900; margin-bottom:10px; }
+    .how-card p { font-size:.9rem; color:rgba(26,26,26,.75); line-height:1.7; }
+
+    /* AUDIENCES */
+    .audiences { background:var(--white); }
+    .aud-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:48px; }
+    .aud-card { border:2px dashed var(--border); border-radius:var(--r); padding:32px 24px; text-align:center; transition:border-color .2s,background .2s; }
+    .aud-card:hover { border-color:var(--teal-d); background:var(--light); }
+    .aud-icon { font-size:2.4rem; margin-bottom:14px; }
+    .aud-card h3 { font-size:.98rem; font-weight:800; margin-bottom:8px; }
+    .aud-card p { font-size:.86rem; color:var(--muted); line-height:1.6; }
+
+    /* CTA */
+    .cta-sec { background:var(--lime); padding:88px 52px; text-align:center; position:relative; overflow:hidden; }
+    .cta-sec .deco { position:absolute; font-size:1.5rem; opacity:.3; }
+    .cta-sec .deco:nth-child(1) { top:28px; right:52px; }
+    .cta-sec .deco:nth-child(2) { bottom:28px; left:52px; }
+    .cta-sec h2 { font-size:clamp(1.8rem,3.5vw,2.8rem); font-weight:900; margin-bottom:14px; letter-spacing:-.5px; position:relative; z-index:1; }
+    .cta-sec p { font-size:1rem; color:rgba(26,26,26,.72); margin-bottom:36px; position:relative; z-index:1; }
+    .cta-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; position:relative; z-index:1; }
+    .btn-dark { display:inline-flex; align-items:center; gap:8px; padding:14px 30px; background:var(--text); color:var(--white); border-radius:50px; font-weight:800; font-size:.95rem; text-decoration:none; transition:opacity .2s,transform .15s; }
+    .btn-dark:hover { opacity:.8; transform:translateY(-2px); }
+    .btn-white { display:inline-flex; align-items:center; gap:8px; padding:14px 30px; background:rgba(255,255,255,.6); color:var(--text); border-radius:50px; font-weight:600; font-size:.95rem; text-decoration:none; transition:background .2s; }
+    .btn-white:hover { background:rgba(255,255,255,.85); }
+
+    footer { background:var(--text); padding:48px 52px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px; }
+    .footer-logo { font-size:1.1rem; font-weight:400; color:var(--white); border:1.5px solid rgba(255,255,255,.3); padding:5px 14px; border-radius:10px; }
+    .footer-logo strong { font-weight:900; }
+    .footer-links { display:flex; gap:20px; flex-wrap:wrap; }
+    footer a { color:rgba(255,255,255,.6); text-decoration:none; font-size:.88rem; }
+    footer a:hover { color:var(--white); }
+    .footer-copy { color:rgba(255,255,255,.3); font-size:.8rem; width:100%; text-align:center; }
+
+    @media (max-width:960px) {
+      nav { padding:0 20px; } .nav-links, .nav-cta { display:none; } .hamburger { display:flex; }
+      section { padding:72px 24px; } .hero { padding:130px 24px 80px; }
+      .hero-inner { grid-template-columns:1fr; gap:36px; } .about-card { max-width:320px; margin:0 auto; }
+      .story-grid, .mission-grid { grid-template-columns:1fr; gap:40px; }
+      .how-grid, .aud-grid { grid-template-columns:1fr 1fr; }
+      footer { padding:36px 24px; }
+    }
+    @media (max-width:560px) { .how-grid, .aud-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">טווים <strong>חשיבה</strong></a>
+  <ul class="nav-links">
+    <li><a href="yiutz.html">ייעוץ ארגוני</a></li><li><a href="sadnaot.html">סדנאות</a></li><li><a href="kurs.html">קורסים</a></li><li><a href="about.html">אודותנו</a></li><li><a href="articles.html">מאמרים</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">צור קשר ←</a>
+  <button class="hamburger" aria-label="פתח תפריט" onclick="document.querySelector('.mobile-menu').classList.toggle('open')"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html">דף בית</a><a href="yiutz.html">ייעוץ ארגוני</a><a href="sadnaot.html">סדנאות</a><a href="kurs.html">קורסים</a><a href="about.html">אודותנו</a><a href="articles.html">מאמרים</a><a href="contact.html">צור קשר</a>
+</div>
+
+<section class="hero">
+  <div class="hero-blob hero-blob-1"></div>
+  <div class="hero-blob hero-blob-2"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">✦ אודות טווים חשיבה</div>
+      <h1>הכל מתחיל<br/>בדרך שבה<br/>אתם חושבים</h1>
+      <p class="hero-desc">ב"טווים חשיבה", אנו מאמינות שחשיבה אפקטיבית היא המפתח לפריצת דרך ולהישגים יוצאי דופן. אנו מתמחות בסדנאות דינמיות וחווייתיות המעצימות ארגונים, מנהלים ואנשים פרטיים.</p>
+    </div>
+    <div class="about-card">
+      <div class="about-photo">
+        <img src="zohar.png" alt="זוהר סלע לוי" onerror="this.parentElement.innerHTML='👩'" />
+      </div>
+      <h3>זוהר סלע לוי</h3>
+      <p class="role">יועצת ארגונית MA<br/>רס"ן במיל' | מנחת סדנאות</p>
+      <div class="tag-row">
+        <span class="tag">ייעוץ ארגוני</span>
+        <span class="tag">פיתוח מנהלים</span>
+        <span class="tag">כובעי חשיבה</span>
+        <span class="tag">אימון אישי</span>
+        <span class="tag">תהליכים קהילתיים</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-text">
+        <span class="pill pill-lav">הסיפור שלי</span>
+        <h2 class="sec-title">זוהר סלע לוי</h2>
+        <p>שמי זוהר סלע לוי, יועצת ארגונית (MA), רס"ן במיל' ומלווה תהליכי פיתוח אישי וארגוני. אני מגיעה מעולמות האימון והפיתוח האישי, עם ניסיון עשיר בליווי תהליכים קהילתיים וארגוניים.</p>
+        <p>ב"טווים חשיבה" אני מחברת בין היכולת האנושית לחלום לבין הכלים הפרקטיים הדרושים כדי להפוך את החלום למטרה מדידה, מתוך אמונה ש<strong>חשיבה יעילה היא המפתח למיצוי פוטנציאל שטרם מנוצל.</strong></p>
+        <p>המשימה שלנו לעורר אנשים וארגונים לנהל את תהליכי החשיבה שלהם אחרת, לקבל החלטות מושכלות מתוך גמישות מחשבתית ולאמץ כלים פרקטיים לשגשוג בעולם המשתנה של היום.</p>
+        <div class="quote-box">
+          <p>״אם כולם חושבים אותו הדבר,<br/>אז מישהו לא חושב.״</p>
+          <cite>— גנרל ג'ורג' פטון</cite>
+        </div>
+      </div>
+      <div class="story-right">
+        <div class="highlight-card">
+          <h3>🎓 השכלה והכשרה</h3>
+          <p>תואר שני (MA) בייעוץ ארגוני. הכשרות בכובעי החשיבה של דה בונו, אימון אישי ועסקי, ותהליכים קהילתיים.</p>
+        </div>
+        <div class="highlight-card">
+          <h3>🏅 ניסיון</h3>
+          <p>רס"ן במיל' עם ניסיון רב בניהול וייעוץ. ליווי עשרות ארגונים, צוותים ומנהלים בתהליכי שינוי ופיתוח.</p>
+        </div>
+        <div class="highlight-card">
+          <h3>💡 הגישה</h3>
+          <p>למידה חווייתית שמשאירה חותם. לא הרצאות — אלא מרחבים לחווייה, תרגול ושינוי אמיתי.</p>
+        </div>
+        <div class="highlight-card">
+          <h3>🌍 קהלים</h3>
+          <p>ארגונים עסקיים, מוסדות חינוך, ארגוני נוער, צוותים ניהוליים ואנשים פרטיים שרוצים לפרוץ קדימה.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mission">
+  <span class="deco">✦</span><span class="deco">✦</span>
+  <div class="container">
+    <div class="mission-grid">
+      <div class="mission-text">
+        <span class="pill pill-white">המשימה שלנו</span>
+        <h2 class="sec-title">לעורר את כוח החשיבה</h2>
+        <p>אנו שואפות לצייד את לקוחותינו באסטרטגיות הדרושות כדי להניע שינוי חיובי ולהשיג תוצאות יוצאות דופן בשטח.</p>
+        <p><strong>הצטרפו אלינו למסע של שינוי — כי הכל מתחיל בדרך שבה אתם חושבים.</strong></p>
+      </div>
+      <div class="values-list">
+        <div class="value-item">
+          <span class="v-icon">⭐</span>
+          <div><h4>מצוינות חווייתית</h4><p>אנו מחויבות לסדנאות המעוררות השראה ועולות על ציפיות הלקוח.</p></div>
+        </div>
+        <div class="value-item">
+          <span class="v-icon">🚀</span>
+          <div><h4>מיצוי פוטנציאל</h4><p>אנו מעצימות את המשתתפים לנצל את מלוא היכולות הקוגניטיביות שלהם דרך כוח החשיבה.</p></div>
+        </div>
+        <div class="value-item">
+          <span class="v-icon">🤝</span>
+          <div><h4>שיתופיות וריבוי דעות</h4><p>אנו מטפחות סביבה מכילה המעריכה נקודות מבט מגוונות כבסיס לעבודת צוות מנצחת.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how">
+  <div class="container">
+    <span class="pill pill-lime">השיטה שלנו</span>
+    <h2 class="sec-title">איך זה עובד?</h2>
+    <p class="sec-sub">השיטה שלנו מבוססת על למידה מעשית וחווייתית (Learning by doing) — לא הרצאות.</p>
+    <div class="how-grid">
+      <div class="how-card"><span class="how-deco">✦</span><div class="how-n">1</div><h3>למידה חווייתית</h3><p>הסדנאות משלבות תיאוריות מרתקות עם תרגילים אינטראקטיביים ומשחקי חשיבה שמאפשרים ליישם כלים באופן מיידי.</p></div>
+      <div class="how-card"><span class="how-deco">✦</span><div class="how-n">2</div><h3>מרחב בטוח</h3><p>אנו יוצרות מרחב בטוח, מעורר סקרנות ומעודד השתתפות פעילה — שהופך כל מפגש למסע משמעותי.</p></div>
+      <div class="how-card"><span class="how-deco">✦</span><div class="how-n">3</div><h3>יישום מיידי</h3><p>המשתתפים יוצאים עם כלים קונקרטיים שניתן לישם כבר ביום שאחרי — לא ידע תיאורטי שנשכח.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="audiences">
+  <div class="container">
+    <span class="pill pill-teal">קהלי היעד</span>
+    <h2 class="sec-title">עם מי אנחנו עובדות</h2>
+    <p class="sec-sub">אנו משרתות מגוון רחב של לקוחות — מעסקים ועד מוסדות חינוך וארגוני נוער.</p>
+    <div class="aud-grid">
+      <div class="aud-card"><div class="aud-icon">🏢</div><h3>ארגונים עסקיים</h3><p>גישה מותאמת לשיפור חשיבה אסטרטגית, טיפוח יצירתיות וקבלת החלטות חדה.</p></div>
+      <div class="aud-card"><div class="aud-icon">👔</div><h3>מנהלים ומנהיגים</h3><p>פיתוח מיומנויות ניהול מבוססות חשיבה שמשפרות תוצאות ותרבות ארגונית.</p></div>
+      <div class="aud-card"><div class="aud-icon">🎓</div><h3>מוסדות חינוך</h3><p>סדנאות לפיתוח חשיבה ביקורתית ויצירתית לסטודנטים ואנשי חינוך.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-sec">
+  <span class="deco">✦</span><span class="deco">✦</span>
+  <h2>מוכנים להתחיל?</h2>
+  <p>השאירו פרטים ואחזור אליכם לשיחת היכרות קצרה — ללא התחייבות.</p>
+  <div class="cta-btns">
+    <a href="contact.html" class="btn-dark">צרו קשר ←</a>
+    <a href="sadnaot.html" class="btn-white">הסדנאות שלנו</a>
+  </div>
+</section>
+
+<footer>
+  <a href="index.html" class="footer-logo">טווים <strong>חשיבה</strong></a>
+  <div class="footer-links"><a href="yiutz.html">ייעוץ ארגוני</a><a href="sadnaot.html">סדנאות</a><a href="kurs.html">קורסים</a><a href="about.html">אודותנו</a><a href="articles.html">מאמרים</a><a href="mailto:info@k2think.com">info@k2think.com</a><a href="tel:0559562242">055-9562242</a></div>
+  <p class="footer-copy">© 2026 טווים חשיבה | זוהר סלע לוי</p>
+</footer>
+</body>
+</html>

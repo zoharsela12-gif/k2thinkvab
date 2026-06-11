@@ -3,428 +3,181 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>כובעי חשיבה | סדנת חשיבה למנהלים – טווים חשיבה</title>
-  <meta name="description" content="סדנת כובעי החשיבה – שיטת ששת הכובעים של אדוארד דה בונו. לקבלת החלטות מדויקות וחשיבה מרובת זוויות." />
+  <title>טווים חשיבה | לחשוב אחרת. לפעול חכם. להצליח יותר.</title>
+  <meta name="description" content="טווים חשיבה – סדנאות חווייתיות, ייעוץ ארגוני וקורסים לפיתוח מיומנויות חשיבה. זוהר סלע לוי, יועצת ארגונית MA." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --teal:     #a8e0dc;
-      --teal-d:   #7eccc6;
-      --lavender: #c5b8e8;
-      --lime:     #d4e84a;
-      --lime-d:   #b8cc20;
-      --white:    #ffffff;
-      --text:     #1a1a1a;
-      --muted:    #5a5a5a;
-      --light:    #f5f5f5;
-      --border:   #e0e0e0;
-      --r-sm:     12px;
-      --r-md:     20px;
-      --r-lg:     28px;
+      --teal:    #a8e0dc;
+      --teal-d:  #72c4be;
+      --lav:     #c5b8e8;
+      --lav-d:   #a898d0;
+      --lime:    #d4e84a;
+      --lime-d:  #b8cc20;
+      --peach:   #f5c87a;
+      --white:   #ffffff;
+      --text:    #1a1a1a;
+      --muted:   #5a5a5a;
+      --light:   #f6f6f4;
+      --border:  #e0e0e0;
+      --r:       20px;
+      --r-lg:    32px;
     }
-
     html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Heebo', sans-serif;
-      background: var(--white);
-      color: var(--text);
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
+    body { font-family:'Heebo',sans-serif; background:var(--white); color:var(--text); line-height:1.7; overflow-x:hidden; }
 
-    /* ── NAV ─────────────────────────────────── */
+    /* NAV */
     nav {
-      position: fixed; top: 0; width: 100%; z-index: 100;
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 52px; height: 66px;
-      display: flex; align-items: center; justify-content: space-between;
+      position:fixed; top:0; width:100%; z-index:100;
+      background:rgba(255,255,255,0.96); backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--border);
+      padding:0 52px; height:66px;
+      display:flex; align-items:center; justify-content:space-between;
     }
-    .logo {
-      font-size: 1.15rem; font-weight: 400; color: var(--text);
-      text-decoration: none;
-      border: 2px solid var(--text);
-      padding: 5px 14px;
-      border-radius: var(--r-sm);
-      background: var(--white);
-    }
-    .logo strong { font-weight: 900; }
-    .nav-links { display: flex; gap: 28px; list-style: none; font-size: 0.9rem; font-weight: 500; }
-    .nav-links a { color: var(--text); text-decoration: none; }
-    .nav-links a:hover { opacity: 0.6; }
-    .nav-cta {
-      background: var(--lime); color: var(--text);
-      padding: 9px 22px; border-radius: 50px;
-      font-weight: 700; font-size: 0.88rem;
-      text-decoration: none; border: none;
-      transition: background 0.2s;
-    }
-    .nav-cta:hover { background: var(--lime-d); }
+    .logo { font-size:1.1rem; font-weight:400; color:var(--text); text-decoration:none; border:2px solid var(--text); padding:5px 14px; border-radius:10px; }
+    .logo strong { font-weight:900; }
+    .nav-links { display:flex; gap:24px; list-style:none; font-size:0.88rem; font-weight:500; }
+    .nav-links a { color:var(--text); text-decoration:none; transition:opacity .2s; }
+    .nav-links a:hover { opacity:.55; }
+    .nav-cta { background:var(--lime); color:var(--text); padding:9px 22px; border-radius:50px; font-weight:700; font-size:.88rem; text-decoration:none; transition:background .2s; white-space:nowrap; }
+    .nav-cta:hover { background:var(--lime-d); }
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
+    .hamburger span { display:block; width:24px; height:2px; background:var(--text); border-radius:2px; transition:all .3s; }
+    .mobile-menu { display:none; position:fixed; top:66px; left:0; right:0; background:rgba(255,255,255,.98); backdrop-filter:blur(12px); border-bottom:1px solid var(--border); padding:20px 24px; z-index:99; flex-direction:column; gap:4px; }
+    .mobile-menu.open { display:flex; }
+    .mobile-menu a { color:var(--text); text-decoration:none; font-size:1rem; font-weight:600; padding:12px 0; border-bottom:1px solid var(--border); }
+    .mobile-menu a:last-child { border-bottom:none; }
 
-    /* ── HERO ────────────────────────────────── */
-    .hero {
-      background: var(--teal);
-      padding: 148px 52px 100px;
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 60px; align-items: center;
-      min-height: 90vh;
-      position: relative; overflow: hidden;
-    }
-    .hero-deco-1 {
-      position: absolute; top: 60px; left: 60px;
-      font-size: 2.2rem; opacity: 0.5; transform: rotate(15deg);
-    }
-    .hero-deco-2 {
-      position: absolute; bottom: 80px; right: 40px;
-      font-size: 1.6rem; opacity: 0.4; transform: rotate(-10deg);
-    }
-    .hero-deco-3 {
-      position: absolute; top: 40%; left: 52%;
-      font-size: 1.2rem; opacity: 0.3;
-    }
-    .hero-eyebrow {
-      display: inline-block;
-      background: rgba(255,255,255,0.55);
-      border-radius: 50px;
-      padding: 6px 16px;
-      font-size: 0.8rem; font-weight: 700;
-      letter-spacing: 1px;
-      margin-bottom: 20px;
-    }
-    .hero h1 {
-      font-size: clamp(2.8rem, 5vw, 4.2rem);
-      font-weight: 900; line-height: 1.12;
-      letter-spacing: -1.5px; margin-bottom: 22px;
-    }
-    .hero p {
-      font-size: 1.05rem; color: rgba(26,26,26,0.75);
-      line-height: 1.85; margin-bottom: 40px; max-width: 460px;
-    }
-    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn-dark {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 14px 28px; background: var(--text); color: var(--white);
-      border-radius: 50px; font-weight: 700; font-size: 0.95rem;
-      text-decoration: none; transition: opacity 0.2s;
-    }
-    .btn-dark:hover { opacity: 0.8; }
-    .btn-ghost {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 14px 28px; background: rgba(255,255,255,0.5);
-      color: var(--text); border-radius: 50px;
-      font-weight: 600; font-size: 0.95rem;
-      text-decoration: none; transition: background 0.2s;
-    }
-    .btn-ghost:hover { background: rgba(255,255,255,0.75); }
+    /* SHARED */
+    section { padding:100px 52px; }
+    .container { max-width:1080px; margin:0 auto; }
+    .pill { display:inline-block; border-radius:50px; padding:5px 18px; font-size:.78rem; font-weight:700; letter-spacing:.8px; margin-bottom:16px; }
+    .pill-lime { background:var(--lime); }
+    .pill-teal { background:var(--teal); }
+    .pill-lav  { background:var(--lav); }
+    .pill-peach { background:var(--peach); }
+    .pill-white { background:rgba(255,255,255,.6); }
+    .sec-title { font-size:clamp(2rem,3.8vw,3rem); font-weight:900; line-height:1.18; letter-spacing:-.8px; margin-bottom:18px; }
+    .sec-sub { font-size:1rem; color:var(--muted); max-width:540px; line-height:1.85; }
+    .link-arr { display:inline-flex; align-items:center; gap:6px; margin-top:24px; font-size:.92rem; font-weight:700; color:var(--text); text-decoration:none; border-bottom:2px solid var(--text); padding-bottom:1px; transition:opacity .2s; }
+    .link-arr:hover { opacity:.5; }
 
-    /* hero card */
-    .hero-card {
-      background: var(--white);
-      border-radius: var(--r-lg);
-      padding: 36px 32px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-    }
-    .hero-card h3 {
-      font-size: 1rem; font-weight: 800; margin-bottom: 20px;
-      padding-bottom: 14px; border-bottom: 1px solid var(--border);
-    }
-    .hats-list { display: flex; flex-direction: column; gap: 10px; }
-    .hat-row {
-      display: flex; align-items: center; gap: 12px;
-      padding: 10px 14px;
-      background: var(--light);
-      border-radius: var(--r-sm);
-      font-size: 0.88rem; font-weight: 600;
-    }
-    .hat-dot { width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0; }
+    /* HERO */
+    .hero { background:var(--teal); padding:148px 52px 108px; position:relative; overflow:hidden; min-height:90vh; display:flex; align-items:center; }
+    .hero-blob { position:absolute; border-radius:50%; pointer-events:none; }
+    .hero-blob-1 { width:640px; height:640px; background:var(--lav); opacity:.3; top:-220px; left:-180px; }
+    .hero-blob-2 { width:380px; height:380px; background:var(--lime); opacity:.25; bottom:-120px; right:60px; }
+    .hero-inner { position:relative; z-index:1; max-width:1080px; margin:0 auto; width:100%; display:grid; grid-template-columns:1fr 420px; gap:64px; align-items:center; }
+    .hero-star { position:absolute; font-size:2rem; opacity:.4; }
+    .hero-star:nth-child(1) { top:-60px; left:-20px; transform:rotate(20deg); }
+    .hero-star:nth-child(2) { bottom:-50px; right:-10px; font-size:1.4rem; transform:rotate(-15deg); }
+    .hero-tag { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.55); border-radius:50px; padding:6px 18px; font-size:.8rem; font-weight:700; letter-spacing:.8px; margin-bottom:22px; }
+    .hero h1 { font-size:clamp(2.6rem,5vw,4.2rem); font-weight:900; line-height:1.12; letter-spacing:-1.5px; margin-bottom:24px; }
+    .hero h1 em { font-style:normal; text-decoration:underline; text-underline-offset:6px; text-decoration-thickness:3px; }
+    .hero-desc { font-size:1.05rem; color:rgba(26,26,26,.75); line-height:1.85; max-width:500px; margin-bottom:40px; }
+    .hero-btns { display:flex; gap:12px; flex-wrap:wrap; }
+    .btn-dark { display:inline-flex; align-items:center; gap:8px; padding:14px 30px; background:var(--text); color:var(--white); border-radius:50px; font-weight:800; font-size:.95rem; text-decoration:none; transition:opacity .2s,transform .15s; }
+    .btn-dark:hover { opacity:.8; transform:translateY(-2px); }
+    .btn-white { display:inline-flex; align-items:center; gap:8px; padding:14px 30px; background:rgba(255,255,255,.55); color:var(--text); border-radius:50px; font-weight:600; font-size:.95rem; text-decoration:none; transition:background .2s; }
+    .btn-white:hover { background:rgba(255,255,255,.8); }
+    .hero-float { background:var(--white); border-radius:var(--r-lg); padding:32px 28px; box-shadow:0 16px 48px rgba(0,0,0,.1); }
+    .hero-float-title { font-size:.82rem; font-weight:700; letter-spacing:1px; color:var(--muted); margin-bottom:20px; }
+    .service-list { display:flex; flex-direction:column; gap:10px; }
+    .service-item { display:flex; align-items:center; gap:14px; background:var(--light); border-radius:14px; padding:14px 16px; text-decoration:none; color:var(--text); transition:background .2s,transform .15s; }
+    .service-item:hover { background:#ececec; transform:translateX(-3px); }
+    .s-icon { font-size:1.4rem; flex-shrink:0; }
+    .s-text h4 { font-size:.9rem; font-weight:800; margin-bottom:2px; }
+    .s-text p { font-size:.78rem; color:var(--muted); line-height:1.35; }
 
-    /* ── SHARED ───────────────────────────────── */
-    section { padding: 100px 52px; }
-    .container { max-width: 1080px; margin: 0 auto; }
-    .eyebrow {
-      display: inline-block;
-      background: var(--lime);
-      border-radius: 50px;
-      padding: 5px 16px;
-      font-size: 0.78rem; font-weight: 700;
-      letter-spacing: 1px;
-      margin-bottom: 16px;
-    }
-    .sec-title {
-      font-size: clamp(2rem, 3.8vw, 3rem);
-      font-weight: 900; line-height: 1.18;
-      letter-spacing: -0.8px; margin-bottom: 18px;
-    }
-    .sec-sub { font-size: 1rem; color: var(--muted); max-width: 520px; line-height: 1.8; }
+    /* SERVICES */
+    .services { background:var(--white); }
+    .services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:52px; }
+    .serv-card { border-radius:var(--r-lg); padding:40px 32px; position:relative; overflow:hidden; text-decoration:none; color:var(--text); display:block; transition:transform .2s,box-shadow .2s; }
+    .serv-card:hover { transform:translateY(-6px); box-shadow:0 16px 40px rgba(0,0,0,.1); }
+    .serv-card:nth-child(1) { background:var(--teal); }
+    .serv-card:nth-child(2) { background:var(--lav); }
+    .serv-card:nth-child(3) { background:var(--lime); }
+    .serv-deco { position:absolute; top:16px; left:16px; font-size:1.3rem; opacity:.35; }
+    .serv-icon { font-size:2.8rem; margin-bottom:20px; }
+    .serv-card h3 { font-size:1.2rem; font-weight:900; margin-bottom:10px; }
+    .serv-card p { font-size:.9rem; color:rgba(26,26,26,.75); line-height:1.7; margin-bottom:20px; }
+    .serv-link { font-size:.88rem; font-weight:800; display:inline-flex; align-items:center; gap:6px; border-bottom:2px solid currentColor; padding-bottom:1px; }
 
-    /* ── WHAT ─────────────────────────────────── */
-    .what { background: var(--white); }
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
-    .two-col-r { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
-    .what-body p { font-size: 1rem; color: var(--muted); line-height: 1.85; margin-bottom: 16px; }
-    .steps { margin-top: 28px; display: flex; flex-direction: column; gap: 0; }
-    .step-item { display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border); }
-    .step-item:last-child { border-bottom: none; }
-    .step-n {
-      width: 32px; height: 32px; border-radius: 50%;
-      background: var(--teal); display: flex; align-items: center;
-      justify-content: center; font-weight: 900; font-size: 0.88rem;
-      flex-shrink: 0; margin-top: 2px;
-    }
-    .step-item h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 3px; }
-    .step-item p { font-size: 0.87rem; color: var(--muted); line-height: 1.5; }
-    .link-arrow {
-      display: inline-flex; align-items: center; gap: 6px;
-      margin-top: 24px; font-size: 0.92rem; font-weight: 700;
-      color: var(--text); text-decoration: none;
-    }
-    .link-arrow:hover { opacity: 0.6; }
+    /* BENEFITS */
+    .benefits { background:var(--light); }
+    .benefits-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:52px; }
+    .benefit-card { background:var(--white); border-radius:var(--r); padding:32px 26px; position:relative; overflow:hidden; transition:transform .2s,box-shadow .2s; }
+    .benefit-card:hover { transform:translateY(-4px); box-shadow:0 12px 32px rgba(0,0,0,.08); }
+    .benefit-card::before { content:''; position:absolute; top:0; right:0; width:80px; height:80px; border-radius:0 var(--r) 0 80px; }
+    .benefit-card:nth-child(1)::before { background:var(--teal); opacity:.4; }
+    .benefit-card:nth-child(2)::before { background:var(--lav); opacity:.4; }
+    .benefit-card:nth-child(3)::before { background:var(--lime); opacity:.5; }
+    .b-icon { font-size:2rem; margin-bottom:14px; }
+    .benefit-card h3 { font-size:1rem; font-weight:800; margin-bottom:8px; }
+    .benefit-card p { font-size:.88rem; color:var(--muted); line-height:1.65; }
 
-    /* what visual */
-    .what-visual {
-      background: var(--lavender);
-      border-radius: var(--r-lg);
-      padding: 36px 28px;
-      position: relative;
-    }
-    .what-visual .deco { position: absolute; top: 20px; left: 20px; font-size: 1.4rem; opacity: 0.5; }
-    .what-q {
-      font-size: 1.3rem; font-weight: 900; margin-bottom: 24px;
-      line-height: 1.3;
-    }
-    .what-cards { display: flex; flex-direction: column; gap: 10px; }
-    .what-card {
-      background: var(--white);
-      border-radius: var(--r-sm);
-      padding: 14px 18px;
-      font-size: 0.88rem; font-weight: 600;
-      display: flex; align-items: center; gap: 10px;
-    }
-    .what-card .icon { font-size: 1.1rem; }
+    /* QUOTE */
+    .quote-sec { background:var(--lime); padding:88px 52px; text-align:center; position:relative; overflow:hidden; }
+    .quote-sec .deco-q { font-size:14rem; font-weight:900; color:rgba(0,0,0,.06); line-height:.7; position:absolute; top:20px; right:60px; font-family:Georgia,serif; }
+    .quote-sec blockquote { font-size:clamp(1.8rem,4vw,3rem); font-weight:900; line-height:1.25; color:var(--text); max-width:720px; margin:0 auto 20px; position:relative; z-index:1; letter-spacing:-.5px; }
+    .quote-sec cite { font-size:.88rem; font-weight:600; color:rgba(26,26,26,.6); font-style:normal; position:relative; z-index:1; }
 
-    /* ── BENEFITS ─────────────────────────────── */
-    .benefits { background: var(--light); }
-    .benefits-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 20px; margin-top: 52px;
-    }
-    .benefit-card {
-      background: var(--white);
-      border-radius: var(--r-md);
-      padding: 32px 26px;
-      transition: transform 0.2s, box-shadow 0.2s;
-      position: relative; overflow: hidden;
-    }
-    .benefit-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
-    .benefit-card::before {
-      content: ''; position: absolute;
-      top: 0; right: 0;
-      width: 80px; height: 80px;
-      border-radius: 0 var(--r-md) 0 80px;
-    }
-    .benefit-card:nth-child(1)::before { background: var(--teal); opacity: 0.35; }
-    .benefit-card:nth-child(2)::before { background: var(--lavender); opacity: 0.35; }
-    .benefit-card:nth-child(3)::before { background: var(--lime); opacity: 0.5; }
-    .benefit-card:nth-child(4)::before { background: var(--lavender); opacity: 0.35; }
-    .benefit-card:nth-child(5)::before { background: var(--lime); opacity: 0.5; }
-    .benefit-card:nth-child(6)::before { background: var(--teal); opacity: 0.35; }
-    .b-num {
-      font-size: 2.8rem; font-weight: 900;
-      color: rgba(26,26,26,0.12); line-height: 1;
-      margin-bottom: 10px;
-    }
-    .benefit-card h3 { font-size: 1rem; font-weight: 800; margin-bottom: 8px; }
-    .benefit-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+    /* ABOUT SNIPPET */
+    .about-snip { background:var(--lav); position:relative; overflow:hidden; }
+    .about-snip .deco { position:absolute; font-size:2rem; opacity:.3; }
+    .about-snip .deco:nth-child(1) { top:40px; left:52px; transform:rotate(15deg); }
+    .about-snip .deco:nth-child(2) { bottom:50px; right:80px; transform:rotate(-20deg); }
+    .about-snip .container { position:relative; z-index:1; }
+    .about-grid { display:grid; grid-template-columns:300px 1fr; gap:72px; align-items:center; }
+    .about-card { background:var(--white); border-radius:var(--r-lg); padding:32px 28px; box-shadow:0 10px 36px rgba(0,0,0,.09); text-align:center; }
+    .about-photo { width:100%; aspect-ratio:1; border-radius:var(--r); background:var(--teal); display:flex; align-items:center; justify-content:center; font-size:5rem; margin-bottom:20px; overflow:hidden; }
+    .about-photo img { width:100%; height:100%; object-fit:cover; object-position:center top; }
+    .about-card h3 { font-size:1.25rem; font-weight:900; margin-bottom:4px; }
+    .about-card .role { font-size:.84rem; color:var(--muted); font-weight:500; margin-bottom:16px; }
+    .tag-row { display:flex; flex-wrap:wrap; gap:7px; justify-content:center; }
+    .tag { background:var(--lav); border-radius:50px; padding:5px 13px; font-size:.75rem; font-weight:700; }
+    .about-text p { font-size:1rem; color:rgba(26,26,26,.8); line-height:1.85; margin-bottom:16px; }
+    .about-text p strong { color:var(--text); font-weight:800; }
 
-    /* ── QUOTE ────────────────────────────────── */
-    .quote-sec {
-      background: var(--lime);
-      padding: 88px 52px; text-align: center;
-      position: relative; overflow: hidden;
-    }
-    .quote-sec .deco-q {
-      font-size: 14rem; font-weight: 900;
-      color: rgba(0,0,0,0.07); line-height: 0.7;
-      position: absolute; top: 20px; right: 60px;
-      font-family: Georgia, serif;
-    }
-    .quote-sec blockquote {
-      font-size: clamp(2rem, 4.5vw, 3.4rem);
-      font-weight: 900; line-height: 1.25;
-      color: var(--text); max-width: 720px;
-      margin: 0 auto 20px; position: relative; z-index: 1;
-      letter-spacing: -0.5px;
-    }
-    .quote-sec cite {
-      font-size: 0.88rem; font-weight: 600;
-      color: rgba(26,26,26,0.6); font-style: normal;
-      position: relative; z-index: 1;
-    }
+    /* CTA */
+    .cta-sec { background:var(--white); }
+    .cta-box { background:var(--teal); border-radius:var(--r-lg); padding:72px 64px; text-align:center; position:relative; overflow:hidden; max-width:720px; margin:0 auto; }
+    .cta-box .deco { position:absolute; font-size:1.6rem; opacity:.3; }
+    .cta-box .deco:nth-child(1) { top:24px; left:24px; }
+    .cta-box .deco:nth-child(2) { bottom:24px; right:24px; }
+    .cta-box h2 { font-size:clamp(1.8rem,3.5vw,2.6rem); font-weight:900; margin-bottom:14px; letter-spacing:-.5px; }
+    .cta-box p { font-size:1rem; color:rgba(26,26,26,.72); margin-bottom:36px; }
+    .cta-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
 
-    /* ── HOW ─────────────────────────────────── */
-    .how { background: var(--white); }
-    .how-cards {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 20px; margin-top: 52px;
-    }
-    .how-card {
-      background: var(--teal);
-      border-radius: var(--r-lg);
-      padding: 36px 28px; position: relative;
-    }
-    .how-card:nth-child(2) { background: var(--lavender); }
-    .how-card:nth-child(3) { background: var(--lime); }
-    .how-n {
-      font-size: 4rem; font-weight: 900;
-      color: rgba(0,0,0,0.12); line-height: 1; margin-bottom: 12px;
-    }
-    .how-card h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 10px; }
-    .how-card p { font-size: 0.9rem; line-height: 1.7; color: rgba(26,26,26,0.75); }
-    .how-deco { position: absolute; top: 20px; left: 20px; font-size: 1.3rem; opacity: 0.5; }
+    /* FOOTER */
+    footer { background:var(--text); padding:48px 52px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px; }
+    .footer-logo { font-size:1.1rem; font-weight:400; color:var(--white); border:1.5px solid rgba(255,255,255,.3); padding:5px 14px; border-radius:10px; }
+    .footer-logo strong { font-weight:900; }
+    .footer-links { display:flex; gap:20px; flex-wrap:wrap; }
+    footer a { color:rgba(255,255,255,.6); text-decoration:none; font-size:.88rem; }
+    footer a:hover { color:var(--white); }
+    .footer-copy { color:rgba(255,255,255,.3); font-size:.8rem; width:100%; text-align:center; }
 
-    /* ── FORMAT ───────────────────────────────── */
-    .format { background: var(--light); }
-    .format-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 20px; margin-top: 52px;
+    /* RESPONSIVE */
+    @media (max-width:960px) {
+      nav { padding:0 20px; }
+      .nav-links, .nav-cta { display:none; }
+      .hamburger { display:flex; }
+      section { padding:72px 24px; }
+      .hero { padding:130px 24px 80px; min-height:auto; }
+      .hero-inner { grid-template-columns:1fr; }
+      .hero-float { display:none; }
+      .services-grid, .benefits-grid { grid-template-columns:1fr 1fr; }
+      .about-grid { grid-template-columns:1fr; gap:36px; }
+      .cta-box { padding:48px 32px; }
+      footer { padding:36px 24px; }
+      .quote-sec { padding:72px 24px; }
     }
-    .format-card {
-      background: var(--white);
-      border-radius: var(--r-md);
-      padding: 36px 28px; text-align: center;
-      border: 1.5px dashed var(--border);
-      transition: border-color 0.2s;
-    }
-    .format-card:hover { border-color: var(--teal-d); }
-    .f-icon { font-size: 2.4rem; margin-bottom: 16px; }
-    .format-card h3 { font-size: 1rem; font-weight: 800; margin-bottom: 10px; }
-    .format-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
-    .f-pill {
-      display: inline-block; margin-top: 16px;
-      background: var(--teal); border-radius: 50px;
-      padding: 5px 16px; font-size: 0.78rem; font-weight: 700;
-    }
-
-    /* ── ABOUT ────────────────────────────────── */
-    .about { background: var(--lavender); position: relative; overflow: hidden; }
-    .about .deco-star-1 { position: absolute; top: 40px; left: 40px; font-size: 2rem; opacity: 0.35; }
-    .about .deco-star-2 { position: absolute; bottom: 60px; right: 80px; font-size: 1.4rem; opacity: 0.3; }
-    .about .container { position: relative; z-index: 1; }
-    .about-grid { display: grid; grid-template-columns: 320px 1fr; gap: 72px; align-items: start; }
-    .about-id-card {
-      background: var(--white);
-      border-radius: var(--r-lg);
-      padding: 32px 26px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-    }
-    .about-photo {
-      width: 100%; aspect-ratio: 1;
-      border-radius: var(--r-md);
-      background: var(--teal);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 5rem; margin-bottom: 20px;
-      overflow: hidden;
-    }
-    .about-photo img { width: 100%; height: 100%; object-fit: cover; }
-    .about-id-card h3 { font-size: 1.25rem; font-weight: 900; margin-bottom: 4px; }
-    .about-id-card .role { font-size: 0.85rem; color: var(--muted); margin-bottom: 18px; font-weight: 500; }
-    .tag-row { display: flex; flex-wrap: wrap; gap: 7px; }
-    .tag {
-      background: var(--lavender); border-radius: 50px;
-      padding: 5px 12px; font-size: 0.75rem; font-weight: 700;
-    }
-    .about-text { padding-top: 8px; }
-    .about-text .eyebrow { background: rgba(255,255,255,0.6); }
-    .about-text p { font-size: 1rem; color: rgba(26,26,26,0.8); line-height: 1.85; margin-bottom: 18px; }
-    .about-text p strong { color: var(--text); font-weight: 800; }
-
-    /* ── CONTACT ──────────────────────────────── */
-    .contact { background: var(--white); }
-    .contact-inner { max-width: 640px; margin: 0 auto; }
-    .contact-box {
-      background: var(--teal);
-      border-radius: var(--r-lg);
-      padding: 52px 48px; margin-top: 52px;
-      position: relative; overflow: hidden;
-    }
-    .contact-box .deco { position: absolute; top: 24px; left: 24px; font-size: 1.6rem; opacity: 0.35; }
-    .contact-box h3 { font-size: 1.6rem; font-weight: 900; margin-bottom: 8px; }
-    .contact-box > p { color: rgba(26,26,26,0.7); margin-bottom: 32px; font-size: 0.97rem; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .fg { margin-bottom: 14px; }
-    .fg label { display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 7px; }
-    .fg label .opt { font-weight: 400; opacity: 0.6; }
-    .fg input {
-      width: 100%; padding: 13px 16px;
-      border: 2px solid rgba(0,0,0,0.12);
-      border-radius: var(--r-sm);
-      background: var(--white);
-      font-family: 'Heebo', sans-serif;
-      font-size: 0.95rem; color: var(--text);
-      outline: none; direction: rtl;
-      transition: border-color 0.15s;
-    }
-    .fg input:focus { border-color: var(--teal-d); }
-    .fg input::placeholder { color: #bbb; }
-    .submit-btn {
-      width: 100%; padding: 16px;
-      background: var(--text); color: var(--white);
-      border: none; border-radius: 50px;
-      font-family: 'Heebo', sans-serif;
-      font-size: 1rem; font-weight: 800;
-      cursor: pointer; display: flex; align-items: center;
-      justify-content: center; gap: 8px;
-      margin-top: 8px; transition: opacity 0.2s, transform 0.15s;
-    }
-    .submit-btn:hover { opacity: 0.82; transform: translateY(-2px); }
-    .form-note { text-align: center; font-size: 0.78rem; color: rgba(26,26,26,0.5); margin-top: 12px; }
-    .success-msg {
-      display: none; text-align: center; padding: 28px;
-      border-radius: var(--r-md);
-      background: var(--white); margin-top: 20px;
-      font-weight: 800; font-size: 1.1rem;
-    }
-
-    /* ── FOOTER ───────────────────────────────── */
-    footer {
-      background: var(--text);
-      padding: 48px 52px;
-      display: flex; align-items: center;
-      justify-content: space-between; flex-wrap: wrap; gap: 20px;
-    }
-    .footer-logo {
-      font-size: 1.1rem; font-weight: 400; color: var(--white);
-      border: 1.5px solid rgba(255,255,255,0.3);
-      padding: 5px 14px; border-radius: var(--r-sm);
-    }
-    .footer-logo strong { font-weight: 900; }
-    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
-    footer a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.88rem; }
-    footer a:hover { color: var(--white); }
-    .footer-copy { color: rgba(255,255,255,0.35); font-size: 0.8rem; width: 100%; text-align: center; }
-
-    /* ── RESPONSIVE ───────────────────────────── */
-    @media (max-width: 900px) {
-      nav { padding: 0 20px; }
-      .nav-links { display: none; }
-      section { padding: 72px 24px; }
-      .hero { padding: 130px 24px 72px; grid-template-columns: 1fr; min-height: auto; }
-      .hero-card { display: none; }
-      .two-col, .two-col-r, .about-grid { grid-template-columns: 1fr; gap: 36px; }
-      .benefits-grid, .how-cards, .format-grid { grid-template-columns: 1fr 1fr; }
-      .form-row { grid-template-columns: 1fr; }
-      .contact-box { padding: 36px 24px; }
-      footer { padding: 36px 24px; }
-      .quote-sec { padding: 72px 24px; }
-    }
-    @media (max-width: 560px) {
-      .benefits-grid, .how-cards, .format-grid { grid-template-columns: 1fr; }
+    @media (max-width:600px) {
+      .services-grid, .benefits-grid { grid-template-columns:1fr; }
     }
   </style>
 </head>
@@ -432,122 +185,118 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#top" class="logo">טווים <strong>חשיבה</strong></a>
+  <a href="index.html" class="logo">טווים <strong>חשיבה</strong></a>
   <ul class="nav-links">
-    <li><a href="#workshop">הסדנה</a></li>
-    <li><a href="#benefits">יתרונות</a></li>
-    <li><a href="#about">מי אני</a></li>
-    <li><a href="#contact">צור קשר</a></li>
+    <li><a href="yiutz.html">ייעוץ ארגוני</a></li>
+    <li><a href="sadnaot.html">סדנאות</a></li>
+    <li><a href="kurs.html">קורסים</a></li>
+    <li><a href="about.html">אודותנו</a></li>
+    <li><a href="articles.html">מאמרים</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">השאירו פרטים ←</a>
+  <a href="contact.html" class="nav-cta">צור קשר ←</a>
+  <button class="hamburger" aria-label="פתח תפריט" onclick="document.querySelector('.mobile-menu').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="mobile-menu">
+  <a href="index.html">דף בית</a>
+  <a href="yiutz.html">ייעוץ ארגוני</a>
+  <a href="sadnaot.html">סדנאות</a>
+  <a href="kurs.html">קורסים</a>
+  <a href="about.html">אודותנו</a>
+  <a href="articles.html">מאמרים</a>
+  <a href="contact.html">צור קשר</a>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="top">
-  <span class="hero-deco-1">✦</span>
-  <span class="hero-deco-2">✦</span>
-  <span class="hero-deco-3">✦</span>
-  <div>
-    <div class="hero-eyebrow">סדנה לפיתוח חשיבה ניהולית</div>
-    <h1>כובעי<br/>חשיבה</h1>
-    <p>הגיע הזמן לחשוב אחרת. הסדנה מלמדת מנהלים לנתח מצבים מורכבים, לקבל החלטות מדויקות ולנהל שיח קבוצתי אפקטיבי — דרך שיטת ששת הכובעים של אדוארד דה בונו.</p>
-    <div class="hero-btns">
-      <a href="#contact" class="btn-dark">השאירו פרטים ←</a>
-      <a href="#workshop" class="btn-ghost">קרא עוד</a>
+  <div class="hero-blob hero-blob-1"></div>
+  <div class="hero-blob hero-blob-2"></div>
+  <div class="hero-inner">
+    <span class="hero-star">✦</span>
+    <span class="hero-star">✦</span>
+    <div>
+      <div class="hero-tag">✦ טווים חשיבה</div>
+      <h1>לחשוב <em>אחרת</em>.<br/>לפעול חכם.<br/>להצליח יותר.</h1>
+      <p class="hero-desc">בכל יום אנחנו חושבים כ-60,000 מחשבות. רובן חולפות, חלקן מעכבות אותנו, ורק מעטות הופכות לתוצאות. האתגר האמיתי הוא לא "לעשות יותר" — אלא לחשוב נכון.</p>
+      <div class="hero-btns">
+        <a href="sadnaot.html" class="btn-dark">הסדנאות שלנו ←</a>
+        <a href="yiutz.html" class="btn-white">ייעוץ ארגוני</a>
+      </div>
     </div>
-  </div>
-  <div class="hero-card">
-    <h3>✦ ששה כובעים — שש זוויות חשיבה</h3>
-    <div class="hats-list">
-      <div class="hat-row"><span class="hat-dot" style="background:#d0d0d0"></span>לבן — עובדות ונתונים</div>
-      <div class="hat-row"><span class="hat-dot" style="background:#e05252"></span>אדום — רגשות ואינטואיציות</div>
-      <div class="hat-row"><span class="hat-dot" style="background:#2c2c2c"></span>שחור — סיכונים וחסרונות</div>
-      <div class="hat-row"><span class="hat-dot" style="background:#c8b800"></span>צהוב — יתרונות והזדמנויות</div>
-      <div class="hat-row"><span class="hat-dot" style="background:#3aaa5e"></span>ירוק — יצירתיות ורעיונות</div>
-      <div class="hat-row"><span class="hat-dot" style="background:#3a8fc4"></span>כחול — ניהול החשיבה</div>
+    <div class="hero-float">
+      <p class="hero-float-title">✦ מה אנחנו מציעים</p>
+      <div class="service-list">
+        <a href="yiutz.html" class="service-item">
+          <span class="s-icon">🏢</span>
+          <div class="s-text"><h4>ייעוץ ארגוני</h4><p>שינוי מהיר, ממוקד ומשתף — מבפנים החוצה</p></div>
+        </a>
+        <a href="sadnaot.html" class="service-item">
+          <span class="s-icon">🎲</span>
+          <div class="s-text"><h4>סדנאות חווייתיות</h4><p>למידה דרך משחק שמשאירה חותם</p></div>
+        </a>
+        <a href="kurs.html" class="service-item">
+          <span class="s-icon">🎓</span>
+          <div class="s-text"><h4>קורס מנהלים</h4><p>לחשוב אחרת, להוביל אחרת — 3 מפגשים</p></div>
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- WHAT -->
-<section class="what" id="workshop">
+<!-- SERVICES -->
+<section class="services">
   <div class="container">
-    <div class="two-col">
-      <div class="what-body">
-        <span class="eyebrow">מה זה הסדנה</span>
-        <h2 class="sec-title">חשיבה מרובת זוויות</h2>
-        <p>סדנה חווייתית המבוססת על שיטת ששת כובעי החשיבה של אדוארד דה בונו — אחת השיטות המוכחות ביותר בעולם לניהול חשיבה קבוצתית.</p>
-        <p>מנהלים לומדים לנתח מצבים מורכבים מתוך ראייה מגוונת, לקבל החלטות מדויקות ולנהל שיח קבוצתי אפקטיבי.</p>
-        <div class="steps">
-          <div class="step-item">
-            <div class="step-n">1</div>
-            <div><h4>ממקדים את מטרת החשיבה</h4><p>בחירה, בניית חלופות, שיפור רעיון קיים או פתרון בעיה.</p></div>
-          </div>
-          <div class="step-item">
-            <div class="step-n">2</div>
-            <div><h4>חובשים כל פעם כובע אחד</h4><p>כותבים את כל המחשבות הרלוונטיות לאותה זווית בלבד.</p></div>
-          </div>
-          <div class="step-item">
-            <div class="step-n">3</div>
-            <div><h4>מסמנים את הנקודות המשפיעות</h4><p>מזהים מה קובע את ההחלטה ומה הצעד הבא.</p></div>
-          </div>
-          <div class="step-item">
-            <div class="step-n">4</div>
-            <div><h4>מה ברור? מה חסר? מה הצעד הבא?</h4><p>סיכום מובנה שמוביל לפעולה מדויקת.</p></div>
-          </div>
-        </div>
-        <a href="#contact" class="link-arrow">רוצים לשמוע עוד ←</a>
-      </div>
-      <div class="what-visual">
-        <span class="deco">✦</span>
-        <p class="what-q">האם הצוות שלכם מצליח לקיים שיח פתוח ולהביע דעות שונות?</p>
-        <div class="what-cards">
-          <div class="what-card"><span class="icon">💬</span>שיח קבוצתי אפקטיבי</div>
-          <div class="what-card"><span class="icon">🎯</span>קבלת החלטות מדויקת</div>
-          <div class="what-card"><span class="icon">💡</span>חשיבה יצירתית ורעיונות חדשים</div>
-          <div class="what-card"><span class="icon">🔍</span>ראייה מרובת זוויות</div>
-        </div>
-      </div>
+    <span class="pill pill-lime">מה אנחנו עושים</span>
+    <h2 class="sec-title">שלושה כלים.<br/>תוצאה אחת.</h2>
+    <p class="sec-sub">כל שירות מותאם לצרכים שונים — ויחד הם יוצרים מערכת שלמה לפיתוח חשיבה אפקטיבית.</p>
+    <div class="services-grid">
+      <a href="yiutz.html" class="serv-card">
+        <span class="serv-deco">✦</span>
+        <div class="serv-icon">🏢</div>
+        <h3>ייעוץ ארגוני</h3>
+        <p>תהליך ממוקד שמאפשר לכל שכבות הארגון לקחת חלק בזיהוי האתגרים ובבניית הפתרון. שינוי שמחזיק לאורך זמן.</p>
+        <span class="serv-link">קראו עוד ←</span>
+      </a>
+      <a href="sadnaot.html" class="serv-card">
+        <span class="serv-deco">✦</span>
+        <div class="serv-icon">🎲</div>
+        <h3>סדנאות</h3>
+        <p>חמש סדנאות חווייתיות — כובעי חשיבה, מפת חשיבה, פתרון בעיות, עבודת צוות ועוד. למידה שמייצרת שינוי.</p>
+        <span class="serv-link">כל הסדנאות ←</span>
+      </a>
+      <a href="kurs.html" class="serv-card">
+        <span class="serv-deco">✦</span>
+        <div class="serv-icon">🎓</div>
+        <h3>קורס מנהלים</h3>
+        <p>קורס עומק בן 3 מפגשים למנהלים: חשיבה אפקטיבית, קבלת החלטות, בניית צוותים פרודוקטיביים.</p>
+        <span class="serv-link">פרטי הקורס ←</span>
+      </a>
     </div>
   </div>
 </section>
 
 <!-- BENEFITS -->
-<section class="benefits" id="benefits">
+<section class="benefits">
   <div class="container">
-    <span class="eyebrow">למה כדאי</span>
-    <h2 class="sec-title">מה תקבלו מהסדנה</h2>
-    <p class="sec-sub">הערך האמיתי הוא לא רק ב"לדעת" — אלא ב"לפעול אחרת" מחר בבוקר.</p>
+    <span class="pill pill-teal">למה טווים חשיבה</span>
+    <h2 class="sec-title">מה תרוויחו</h2>
+    <p class="sec-sub">שלושה תחומים שמשתנים כשמפתחים חשיבה אפקטיבית.</p>
     <div class="benefits-grid">
       <div class="benefit-card">
-        <div class="b-num">01</div>
-        <h3>שיפור קבלת ההחלטות</h3>
-        <p>כלי מובנה לניתוח כל זוויות ההחלטה לפני שפועלים. פחות החלטות שמתחרטים עליהן.</p>
+        <div class="b-icon">🧠</div>
+        <h3>שיפור מיומנויות חשיבה</h3>
+        <p>חשיבה כוללת ניתוח מידע. על ידי לימוד טכניקות ואסטרטגיות חשיבה שונות, אתם משפרים את יכולתכם לחשוב בהיגיון, לפתור בעיות ולקבל החלטות מושכלות.</p>
       </div>
       <div class="benefit-card">
-        <div class="b-num">02</div>
+        <div class="b-icon">💡</div>
         <h3>הגברת יצירתיות וחדשנות</h3>
-        <p>מרחב מוגדר לרעיונות חדשים ללא ביקורת מוקדמת, ואז ניתוח שממקד אותם לפתרונות ישימים.</p>
+        <p>קבלת כלים שמעוררים יצירתיות ומעודדים חשיבה חדשנית. לחשוב מחוץ לקופסה, לייצר רעיונות חדשים ולטפל באתגרים מנקודות מבט שונות.</p>
       </div>
       <div class="benefit-card">
-        <div class="b-num">03</div>
+        <div class="b-icon">🤝</div>
         <h3>תקשורת ושיתוף פעולה</h3>
-        <p>כשכל הצוות מכיר את השיטה נוצרת שפה ניהולית משותפת שמייצרת תיאום ותרבות פתוחה.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="b-num">04</div>
-        <h3>ראייה מרובת זוויות</h3>
-        <p>יכולת לצאת מנקודת המבט הרגילה ולבחון מצבים מכיוונים שבדרך כלל נשארים עיוורים.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="b-num">05</div>
-        <h3>יישום מיידי</h3>
-        <p>הסדנה בנויה על תרגול עם אתגרים אמיתיים. יוצאים עם כלי שמשתמשים בו כבר ביום שאחרי.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="b-num">06</div>
-        <h3>שפה ניהולית משותפת</h3>
-        <p>ישיבות שמסתיימות עם הכרעות ברורות ותוכנית פעולה — לא עם שאלות פתוחות.</p>
+        <p>חשיבה אפקטיבית הולכת יד ביד עם תקשורת יעילה. נלמד לבטא רעיונות בצורה ברורה ולתרום ביעילות במסגרות צוות.</p>
       </div>
     </div>
   </div>
@@ -560,117 +309,47 @@
   <cite>— גנרל ג'ורג' פטון</cite>
 </section>
 
-<!-- HOW -->
-<section class="how" id="how">
-  <div class="container">
-    <span class="eyebrow">איך זה עובד</span>
-    <h2 class="sec-title">שלב אחר שלב</h2>
-    <p class="sec-sub">תהליך מובנה, פרקטי וחווייתי שמוביל לבניית תוכנית פעולה ישימה.</p>
-    <div class="how-cards">
-      <div class="how-card">
-        <span class="how-deco">✦</span>
-        <div class="how-n">1</div>
-        <h3>למידה דרך משחק</h3>
-        <p>למידה חווייתית שמאפשרת לכל משתתף לחוות ולהבין את הדינמיקה מבפנים — לא הרצאה פרונטלית.</p>
-      </div>
-      <div class="how-card">
-        <span class="how-deco">✦</span>
-        <div class="how-n">2</div>
-        <h3>בחירה ומיקוד</h3>
-        <p>זיהוי הנקודות שרוצים לבחון: פערים, תיאום בין צוותים, יעדים או קבלת החלטות.</p>
-      </div>
-      <div class="how-card">
-        <span class="how-deco">✦</span>
-        <div class="how-n">3</div>
-        <h3>חשיבה לפי תבניות</h3>
-        <p>תהליך מובנה של חשיבה אפקטיבית בשיטת כובעי החשיבה שמוביל לתוכנית פעולה ברורה.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FORMAT -->
-<section class="format" id="format">
-  <div class="container">
-    <span class="eyebrow">מבנה הסדנה</span>
-    <h2 class="sec-title">גמישות לפי הארגון</h2>
-    <p class="sec-sub">הסדנה מותאמת אישית לצוות, לאתגרים ולגודל הקבוצה.</p>
-    <div class="format-grid">
-      <div class="format-card">
-        <div class="f-icon">⏱️</div>
-        <h3>משך הסדנה</h3>
-        <p>בין שעתיים וחצי לחמש שעות, בהתאם לעומק הרצוי ולצרכי הארגון.</p>
-        <span class="f-pill">פרונטלי</span>
-      </div>
-      <div class="format-card">
-        <div class="f-icon">🎲</div>
-        <h3>מתודולוגיה</h3>
-        <p>תרגולים חוויתיים, משחקי תפקידים, סימולציות ושיח פתוח — לא הרצאה.</p>
-        <span class="f-pill">למידה דרך משחק</span>
-      </div>
-      <div class="format-card">
-        <div class="f-icon">👥</div>
-        <h3>למי מתאים</h3>
-        <p>מנהלים בכל שלב — כבסיס, כהעמקה, ככלי לצוותים ניהוליים ולדרג הנהלה.</p>
-        <span class="f-pill">מותאם אישית</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="about" id="about">
-  <span class="deco-star-1">✦</span>
-  <span class="deco-star-2">✦</span>
+<!-- ABOUT SNIPPET -->
+<section class="about-snip">
+  <span class="deco">✦</span>
+  <span class="deco">✦</span>
   <div class="container">
     <div class="about-grid">
-      <div class="about-id-card">
-        <div class="about-photo">👩</div>
+      <div class="about-card">
+        <div class="about-photo">
+          <img src="zohar.png" alt="זוהר סלע לוי" onerror="this.parentElement.innerHTML='👩'" />
+        </div>
         <h3>זוהר סלע לוי</h3>
-        <p class="role">יועצת ארגונית בעלת תואר שני, רס"ן במיל'</p>
+        <p class="role">יועצת ארגונית MA | רס"ן במיל'</p>
         <div class="tag-row">
           <span class="tag">ייעוץ ארגוני</span>
           <span class="tag">פיתוח מנהלים</span>
-          <span class="tag">אימון אישי</span>
           <span class="tag">כובעי חשיבה</span>
+          <span class="tag">אימון אישי</span>
         </div>
       </div>
       <div class="about-text">
-        <span class="eyebrow">מי אני</span>
-        <h2 class="sec-title">זוהר סלע לוי</h2>
-        <p>אני מלווה ארגונים, מנהלים ואנשים פרטיים בפיתוח חשיבה אפקטיבית ויכולת מיקוד. מגיעה מעולמות האימון והפיתוח האישי, עם ניסיון בליווי תהליכים ארגוניים וקהילתיים.</p>
-        <p>אני עוזרת להפוך חלומות למטרות מדידות, לפתח מיומנויות חשיבה ולבנות תוכניות פעולה שמובילות לתוצאות.</p>
-        <p><strong>טווים חשיבה</strong> מציעה סדנאות ותהליך ייעוץ ארגוני שמפתחים את הכישורים שכל מנהל צריך: חשיבה ביקורתית, יצירתית ורגשית, קבלת החלטות והובלת תהליכים.</p>
-        <a href="#contact" class="link-arrow">בואו נדבר ←</a>
+        <span class="pill pill-white">אודותנו</span>
+        <h2 class="sec-title">חשיבה אפקטיבית היא המפתח</h2>
+        <p>ב"טווים חשיבה", אנו מאמינות שחשיבה אפקטיבית היא המפתח לפריצת דרך ולהישגים יוצאי דופן. אנו מתמחות בסדנאות דינמיות וחווייתיות המעצימות ארגונים עסקיים, מוסדות חינוך ובני נוער לפתח מיומנויות חשיבה מתקדמות.</p>
+        <p>אני מחברת בין היכולת האנושית לחלום לבין הכלים הפרקטיים הדרושים כדי להפוך את החלום למטרה מדידה, מתוך אמונה ש<strong>חשיבה יעילה היא המפתח למיצוי פוטנציאל שטרם מנוצל.</strong></p>
+        <a href="about.html" class="link-arr">קראו עוד עלינו ←</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="contact" id="contact">
+<!-- CTA -->
+<section class="cta-sec">
   <div class="container">
-    <div class="contact-inner">
-      <div style="text-align:center">
-        <span class="eyebrow">דברו איתי</span>
-        <h2 class="sec-title">רוצים לשמוע עוד?</h2>
-        <p class="sec-sub" style="margin:0 auto">השאירו פרטים ואחזור אליכם בהקדם לשיחת היכרות — ללא התחייבות.</p>
-      </div>
-      <div class="contact-box">
-        <span class="deco">✦</span>
-        <h3>השאירו פרטים</h3>
-        <p>ואחזור אליכם בהקדם לקביעת שיחה קצרה</p>
-        <form id="contactForm" onsubmit="handleSubmit(event)">
-          <div class="form-row">
-            <div class="fg"><label>שם מלא</label><input type="text" placeholder="ישראל ישראלי" required /></div>
-            <div class="fg"><label>טלפון</label><input type="tel" placeholder="050-0000000" required /></div>
-          </div>
-          <div class="fg"><label>כתובת מייל</label><input type="email" placeholder="name@company.com" required /></div>
-          <div class="fg"><label>חברה / ארגון <span class="opt">(אופציונלי)</span></label><input type="text" placeholder="שם הארגון" /></div>
-          <button type="submit" class="submit-btn">שלחו את הפרטים שלי ←</button>
-          <p class="form-note">הפרטים שלכם מאובטחים ולא יועברו לצד שלישי</p>
-        </form>
-        <div class="success-msg" id="successMsg">✦ תודה! קיבלתי את הפרטים ואחזור אליך בהקדם 🎩</div>
+    <div class="cta-box">
+      <span class="deco">✦</span>
+      <span class="deco">✦</span>
+      <h2>מוכנים להתחיל לחשוב אחרת?</h2>
+      <p>השאירו פרטים ואחזור אליכם לשיחת היכרות קצרה — ללא התחייבות.</p>
+      <div class="cta-btns">
+        <a href="contact.html" class="btn-dark">יצירת קשר ←</a>
+        <a href="sadnaot.html" class="btn-white">כל הסדנאות</a>
       </div>
     </div>
   </div>
@@ -678,32 +357,18 @@
 
 <!-- FOOTER -->
 <footer>
-  <span class="footer-logo">טווים <strong>חשיבה</strong></span>
+  <a href="index.html" class="footer-logo">טווים <strong>חשיבה</strong></a>
   <div class="footer-links">
+    <a href="yiutz.html">ייעוץ ארגוני</a>
+    <a href="sadnaot.html">סדנאות</a>
+    <a href="kurs.html">קורסים</a>
+    <a href="about.html">אודותנו</a>
+    <a href="articles.html">מאמרים</a>
     <a href="mailto:info@k2think.com">info@k2think.com</a>
     <a href="tel:0559562242">055-9562242</a>
-    <a href="https://k2think.com" target="_blank">www.k2think.com</a>
   </div>
-  <p class="footer-copy">© 2025 טווים חשיבה | זוהר סלע לוי</p>
+  <p class="footer-copy">© 2026 טווים חשיבה | זוהר סלע לוי</p>
 </footer>
 
-<script>
-  function handleSubmit(e) {
-    e.preventDefault();
-    const form = document.getElementById('contactForm');
-    const btn = form.querySelector('.submit-btn');
-    btn.textContent = 'שולח...'; btn.disabled = true;
-    setTimeout(() => {
-      form.style.display = 'none';
-      document.getElementById('successMsg').style.display = 'block';
-    }, 700);
-  }
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const t = document.querySelector(a.getAttribute('href'));
-      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
-    });
-  });
-</script>
 </body>
 </html>

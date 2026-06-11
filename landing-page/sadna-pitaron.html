@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>סדנת פתרון | סדנאות טווים חשיבה</title>
+  <meta name="description" content="סדנת פתרון – חשיבה מתקדמת ליצירת חלופות. איך יוצאים מהפלונטר ומוצאים פתרונות חדשניים במקום שבו אחרים רואים רק חסמים." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --teal:#a8e0dc; --teal-d:#72c4be; --lav:#c5b8e8; --lime:#d4e84a; --lime-d:#b8cc20; --peach:#f5c87a; --peach-d:#e0a84a; --white:#ffffff; --text:#1a1a1a; --muted:#5a5a5a; --light:#f6f6f4; --border:#e0e0e0; --r:20px; --r-lg:32px; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Heebo',sans-serif; background:var(--white); color:var(--text); line-height:1.7; overflow-x:hidden; }
+    nav { position:fixed; top:0; width:100%; z-index:100; background:rgba(255,255,255,0.96); backdrop-filter:blur(14px); border-bottom:1px solid var(--border); padding:0 52px; height:66px; display:flex; align-items:center; justify-content:space-between; }
+    .logo { font-size:1.1rem; font-weight:400; color:var(--text); text-decoration:none; border:2px solid var(--text); padding:5px 14px; border-radius:10px; }
+    .logo strong { font-weight:900; }
+    .nav-links { display:flex; gap:24px; list-style:none; font-size:.88rem; font-weight:500; }
+    .nav-links a { color:var(--text); text-decoration:none; transition:opacity .2s; }
+    .nav-links a:hover { opacity:.55; }
+    .nav-cta { background:var(--lime); color:var(--text); padding:9px 22px; border-radius:50px; font-weight:700; font-size:.88rem; text-decoration:none; transition:background .2s; white-space:nowrap; }
+    .nav-cta:hover { background:var(--lime-d); }
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
+    .hamburger span { display:block; width:24px; height:2px; background:var(--text); border-radius:2px; }
+    .mobile-menu { display:none; position:fixed; top:66px; left:0; right:0; background:rgba(255,255,255,.98); backdrop-filter:blur(12px); border-bottom:1px solid var(--border); padding:20px 24px; z-index:99; flex-direction:column; gap:4px; }
+    .mobile-menu.open { display:flex; }
+    .mobile-menu a { color:var(--text); text-decoration:none; font-size:1rem; font-weight:600; padding:12px 0; border-bottom:1px solid var(--border); }
+    .mobile-menu a:last-child { border-bottom:none; }
+    section { padding:100px 52px; }
+    .container { max-width:1080px; margin:0 auto; }
+    .pill { display:inline-block; border-radius:50px; padding:5px 18px; font-size:.78rem; font-weight:700; letter-spacing:.8px; margin-bottom:16px; }
+    .pill-peach { background:var(--peach); } .pill-lime { background:var(--lime); } .pill-teal { background:var(--teal); } .pill-lav { background:var(--lav); }
+    .sec-title { font-size:clamp(2rem,3.8vw,3rem); font-weight:900; line-height:1.18; letter-spacing:-.8px; margin-bottom:18px; }
+    .sec-sub { font-size:1rem; color:var(--muted); max-width:540px; line-height:1.85; }
+    .breadcrumb { display:flex; align-items:center; gap:8px; font-size:.82rem; color:var(--muted); margin-bottom:28px; }
+    .breadcrumb a { color:var(--muted); text-decoration:none; }
+    .breadcrumb a:hover { color:var(--text); }
+    .breadcrumb span { opacity:.5; }
+
+    .hero { background:var(--peach); padding:148px 52px 100px; position:relative; overflow:hidden; }
+    .hero-blob { position:absolute; border-radius:50%; pointer-events:none; }
+    .hero-blob-1 { width:500px; height:500px; background:var(--lav); opacity:.25; top:-180px; left:-140px; }
+    .hero-blob-2 { width:300px; height:300px; background:var(--teal); opacity:.25; bottom:-80px; right:80px; }
+    .hero-inner { position:relative; z-index:1; max-width:1080px; margin:0 auto; display:grid; grid-template-columns:1fr 380px; gap:64px; align-items:center; }
+    .hero-tag { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.55); border-radius:50px; padding:6px 18px; font-size:.8rem; font-weight:700; letter-spacing:.8px; margin-bottom:22px; }
+    .hero h1 { font-size:clamp(2.6rem,5vw,4rem); font-weight:900; line-height:1.12; letter-spacing:-1.5px; margin-bottom:20px; }
+    .hero-desc { font-size:1.05rem; color:rgba(26,26,26,.75); line-height:1.85; max-width:480px; margin-bottom:40px; }
+    .hero-btns { display:flex; gap:12px; flex-wrap:wrap; }
+    .btn-dark { display:inline-flex; align-items:center; gap:8px; padding:14px 30px; background:var(--text); color:var(--white); border-radius:50px; font-weight:800; font-size:.95rem; text-decoration:none; transition:opacity .2s,transform .15s; }
+    .btn-dark:hover { opacity:.8; transform:translateY(-2px); }
+    .btn-ghost { display:inline-flex; align-items:center; gap:8px; padding:14px 30px; background:rgba(255,255,255,.5); color:var(--text); border-radius:50px; font-weight:600; font-size:.95rem; text-decoration:none; transition:background .2s; }
+    .btn-ghost:hover { background:rgba(255,255,255,.75); }
+    .hero-float { background:var(--white); border-radius:var(--r-lg); padding:32px 28px; box-shadow:0 16px 48px rgba(0,0,0,.1); }
+    .hero-float h3 { font-size:.9rem; font-weight:800; margin-bottom:18px; padding-bottom:12px; border-bottom:1px solid var(--border); }
+    .float-items { display:flex; flex-direction:column; gap:10px; }
+    .float-item { background:var(--light); border-radius:12px; padding:12px 14px; font-size:.88rem; font-weight:600; display:flex; align-items:center; gap:10px; }
+
+    .what { background:var(--white); }
+    .two-col { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:start; }
+    .what-text p { font-size:1rem; color:var(--muted); line-height:1.85; margin-bottom:16px; }
+    .what-visual { background:var(--teal); border-radius:var(--r-lg); padding:40px 32px; position:relative; overflow:hidden; }
+    .what-visual .deco { position:absolute; font-size:1.4rem; opacity:.3; top:18px; left:18px; transform:rotate(20deg); }
+    .what-q { font-size:1.2rem; font-weight:900; margin-bottom:22px; line-height:1.35; }
+    .what-items { display:flex; flex-direction:column; gap:10px; }
+    .what-item { background:var(--white); border-radius:14px; padding:14px 16px; display:flex; align-items:center; gap:10px; font-size:.9rem; font-weight:600; }
+
+    .method { background:var(--light); }
+    .method-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:52px; }
+    .method-card { background:var(--white); border-radius:var(--r); padding:28px 22px; text-align:center; position:relative; }
+    .method-card::after { content:attr(data-step); position:absolute; top:-14px; right:50%; transform:translateX(50%); background:var(--peach); border-radius:50%; width:28px; height:28px; display:flex; align-items:center; justify-content:center; font-size:.8rem; font-weight:900; }
+    .m-icon { font-size:2.2rem; margin-bottom:14px; margin-top:8px; }
+    .method-card h3 { font-size:.95rem; font-weight:800; margin-bottom:8px; }
+    .method-card p { font-size:.84rem; color:var(--muted); line-height:1.6; }
+
+    .benefits { background:var(--white); }
+    .benefits-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:48px; }
+    .benefit-card { background:var(--light); border-radius:var(--r); padding:28px 22px; }
+    .b-icon { font-size:2rem; margin-bottom:14px; }
+    .benefit-card h3 { font-size:.98rem; font-weight:800; margin-bottom:8px; }
+    .benefit-card p { font-size:.87rem; color:var(--muted); line-height:1.6; }
+
+    .format { background:var(--light); }
+    .format-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:48px; }
+    .format-card { background:var(--white); border-radius:var(--r); padding:32px 24px; text-align:center; border:1.5px dashed var(--border); transition:border-color .2s; }
+    .format-card:hover { border-color:var(--peach-d); }
+    .f-icon { font-size:2.2rem; margin-bottom:14px; }
+    .format-card h3 { font-size:1rem; font-weight:800; margin-bottom:8px; }
+    .format-card p { font-size:.87rem; color:var(--muted); line-height:1.6; }
+    .f-pill { display:inline-block; margin-top:14px; background:var(--peach); border-radius:50px; padding:5px 16px; font-size:.75rem; font-weight:700; }
+
+    .cta-sec { background:var(--peach); padding:88px 52px; text-align:center; position:relative; overflow:hidden; }
+    .cta-sec .deco { position:absolute; font-size:1.5rem; opacity:.3; }
+    .cta-sec .deco:nth-child(1) { top:28px; right:52px; }
+    .cta-sec .deco:nth-child(2) { bottom:28px; left:52px; }
+    .cta-sec h2 { font-size:clamp(1.8rem,3.5vw,2.8rem); font-weight:900; margin-bottom:14px; letter-spacing:-.5px; position:relative; z-index:1; }
+    .cta-sec p { font-size:1rem; color:rgba(26,26,26,.72); margin-bottom:36px; position:relative; z-index:1; }
+    .cta-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; position:relative; z-index:1; }
+    .btn-white { display:inline-flex; align-items:center; gap:8px; padding:14px 30px; background:rgba(255,255,255,.6); color:var(--text); border-radius:50px; font-weight:600; font-size:.95rem; text-decoration:none; transition:background .2s; }
+    .btn-white:hover { background:rgba(255,255,255,.85); }
+
+    footer { background:var(--text); padding:48px 52px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px; }
+    .footer-logo { font-size:1.1rem; font-weight:400; color:var(--white); border:1.5px solid rgba(255,255,255,.3); padding:5px 14px; border-radius:10px; }
+    .footer-logo strong { font-weight:900; }
+    .footer-links { display:flex; gap:20px; flex-wrap:wrap; }
+    footer a { color:rgba(255,255,255,.6); text-decoration:none; font-size:.88rem; }
+    footer a:hover { color:var(--white); }
+    .footer-copy { color:rgba(255,255,255,.3); font-size:.8rem; width:100%; text-align:center; }
+
+    @media (max-width:960px) {
+      nav { padding:0 20px; } .nav-links, .nav-cta { display:none; } .hamburger { display:flex; }
+      section { padding:72px 24px; } .hero { padding:130px 24px 80px; }
+      .hero-inner, .two-col { grid-template-columns:1fr; gap:36px; } .hero-float { display:none; }
+      .method-grid { grid-template-columns:1fr 1fr; }
+      .benefits-grid, .format-grid { grid-template-columns:1fr 1fr; }
+      footer { padding:36px 24px; }
+    }
+    @media (max-width:560px) { .method-grid, .benefits-grid, .format-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">טווים <strong>חשיבה</strong></a>
+  <ul class="nav-links">
+    <li><a href="yiutz.html">ייעוץ ארגוני</a></li><li><a href="sadnaot.html">סדנאות</a></li><li><a href="kurs.html">קורסים</a></li><li><a href="about.html">אודותנו</a></li><li><a href="articles.html">מאמרים</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">צור קשר ←</a>
+  <button class="hamburger" aria-label="פתח תפריט" onclick="document.querySelector('.mobile-menu').classList.toggle('open')"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html">דף בית</a><a href="yiutz.html">ייעוץ ארגוני</a><a href="sadnaot.html">סדנאות</a><a href="kurs.html">קורסים</a><a href="about.html">אודותנו</a><a href="articles.html">מאמרים</a><a href="contact.html">צור קשר</a>
+</div>
+
+<section class="hero">
+  <div class="hero-blob hero-blob-1"></div>
+  <div class="hero-blob hero-blob-2"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="breadcrumb"><a href="sadnaot.html">סדנאות</a> <span>/</span> סדנת פתרון</div>
+      <div class="hero-tag">🔑 סדנת פתרון</div>
+      <h1>לצאת<br/>מהפלונטר</h1>
+      <p class="hero-desc">חשיבה מתקדמת ליצירת חלופות. נלמד איך יוצאים ממקומות תקועים, מוצאים פתרונות חדשניים ומנהלים תהליך פתרון קבוצתי אפקטיבי — דרך סימולציות ומשחקים.</p>
+      <div class="hero-btns">
+        <a href="contact.html" class="btn-dark">רוצים לשמוע עוד ←</a>
+        <a href="sadnaot.html" class="btn-ghost">כל הסדנאות</a>
+      </div>
+    </div>
+    <div class="hero-float">
+      <h3>✦ מה תפתחו בסדנה</h3>
+      <div class="float-items">
+        <div class="float-item">🔓 פריצת קיבעונות מחשבתיים</div>
+        <div class="float-item">🌱 יצירת חלופות חדשות</div>
+        <div class="float-item">🎯 מיקוד על הפתרון, לא על הבעיה</div>
+        <div class="float-item">🤝 פתרון קבוצתי אפקטיבי</div>
+        <div class="float-item">⚡ גמישות מחשבתית</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="what">
+  <div class="container">
+    <div class="two-col">
+      <div class="what-text">
+        <span class="pill pill-peach">מה זו הסדנה</span>
+        <h2 class="sec-title">חשיבה שיוצאת מהקופסה</h2>
+        <p>לפעמים אנחנו נתקעים. הפתרון הברור לא עובד, הרעיונות החוזרים לא עוזרים, והצוות כולו לכוד באותה נקודת מבט. סדנת "פתרון" נועדה בדיוק לזה.</p>
+        <p>המשתתפים מתרגלים יצירתיות, גמישות מחשבתית וניהול תהליך פתרון קבוצתי — דרך סימולציות ומשחקים שמאלצים לחשוב אחרת.</p>
+        <p>הסדנה מפתחת יכולת פתרון בעיות, יצירת חלופות והרחבת התפיסה — ומאפשרת לצוות לצאת עם פתרונות חדשים לאתגרים ישנים.</p>
+      </div>
+      <div class="what-visual">
+        <span class="deco">✦</span>
+        <p class="what-q">יש בעיה שהצוות שלכם לא מצליח לפתור?</p>
+        <div class="what-items">
+          <div class="what-item"><span>🔍</span>מזהים את שורש הבעיה האמיתית</div>
+          <div class="what-item"><span>🌱</span>מייצרים חלופות שלא חשבתם עליהן</div>
+          <div class="what-item"><span>⚡</span>מחליטים ומתקדמים — לא מסתובבים</div>
+          <div class="what-item"><span>💪</span>כל אחד תורם מנקודת המבט שלו</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="method">
+  <div class="container">
+    <span class="pill pill-teal">המתודולוגיה</span>
+    <h2 class="sec-title">ארבעה שלבים לפתרון</h2>
+    <p class="sec-sub">תהליך מובנה שמוביל מהבעיה לפתרון — בצורה יצירתית ושיתופית.</p>
+    <div class="method-grid">
+      <div class="method-card" data-step="1">
+        <div class="m-icon">🔍</div>
+        <h3>הגדרת הבעיה</h3>
+        <p>מגדירים את הבעיה האמיתית — לא הסימפטום אלא השורש. שאלות שמחדדות ומבהירות.</p>
+      </div>
+      <div class="method-card" data-step="2">
+        <div class="m-icon">🌪️</div>
+        <h3>סיעור חלופות</h3>
+        <p>מייצרים כמה שיותר חלופות — ללא ביקורת. כמות לפני איכות. גמישות לפני מיקוד.</p>
+      </div>
+      <div class="method-card" data-step="3">
+        <div class="m-icon">⚖️</div>
+        <h3>הערכה ובחירה</h3>
+        <p>מעריכים את החלופות לפי קריטריונים מוסכמים ובוחרים את הפתרון הטוב ביותר.</p>
+      </div>
+      <div class="method-card" data-step="4">
+        <div class="m-icon">🚀</div>
+        <h3>תכנון יישום</h3>
+        <p>מתרגמים את הפתרון לצעדים מעשיים עם אחריות ברורה — ויוצאים לדרך.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="benefits">
+  <div class="container">
+    <span class="pill pill-lav">מה תרוויחו</span>
+    <h2 class="sec-title">מה הצוות מקבל</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card"><div class="b-icon">🔓</div><h3>פריצת קיבעונות</h3><p>יכולת לצאת מדפוסי חשיבה מוכרים ולראות אפשרויות שלא היו נראות קודם.</p></div>
+      <div class="benefit-card"><div class="b-icon">🌱</div><h3>יצירתיות מעשית</h3><p>לא יצירתיות בשביל יצירתיות — אלא כלים שמייצרים רעיונות ישימים ומעשיים.</p></div>
+      <div class="benefit-card"><div class="b-icon">🤝</div><h3>פתרון קבוצתי</h3><p>כל אחד תורם את נקודת המבט הייחודית שלו — ויחד מגיעים לפתרון טוב יותר מכל אחד לבד.</p></div>
+      <div class="benefit-card"><div class="b-icon">⚡</div><h3>מהירות החלטה</h3><p>פחות זמן על "מה נעשה" ויותר זמן על "איך עושים" — בזכות תהליך ברור.</p></div>
+      <div class="benefit-card"><div class="b-icon">🎯</div><h3>מיקוד על הפתרון</h3><p>שינוי תפיסה: במקום לדון בבעיה שוב ושוב — ממקדים אנרגיה בפתרון.</p></div>
+      <div class="benefit-card"><div class="b-icon">📈</div><h3>גמישות ארגונית</h3><p>ארגון שיודע לפתור בעיות מהר מסתגל טוב יותר לשינויים ולאתגרים חדשים.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="format">
+  <div class="container">
+    <span class="pill pill-peach">מבנה הסדנה</span>
+    <h2 class="sec-title">גמישות לפי האתגר</h2>
+    <div class="format-grid">
+      <div class="format-card"><div class="f-icon">⏱️</div><h3>משך הסדנה</h3><p>3–5 שעות, אפשר להתאים לאתגר ספציפי שהארגון עומד בפניו.</p><span class="f-pill">פרונטלי</span></div>
+      <div class="format-card"><div class="f-icon">🎲</div><h3>מתודולוגיה</h3><p>סימולציות, משחקי חשיבה, עבודת קבוצות ורפלקציה מובנית — לא הרצאה.</p><span class="f-pill">חוויתי</span></div>
+      <div class="format-card"><div class="f-icon">👥</div><h3>למי מתאים</h3><p>כל קבוצה שניצבת בפני אתגר שלא מצאו לו פתרון, או שרוצה לשפר כישורי פתרון בעיות.</p><span class="f-pill">מותאם אישית</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-sec">
+  <span class="deco">✦</span><span class="deco">✦</span>
+  <h2>יש בעיה שתקועה? בואו נפתור אותה.</h2>
+  <p>השאירו פרטים ואחזור אליכם לשיחת היכרות קצרה.</p>
+  <div class="cta-btns">
+    <a href="contact.html" class="btn-dark">השאירו פרטים ←</a>
+    <a href="sadnaot.html" class="btn-white">כל הסדנאות</a>
+  </div>
+</section>
+
+<footer>
+  <a href="index.html" class="footer-logo">טווים <strong>חשיבה</strong></a>
+  <div class="footer-links"><a href="yiutz.html">ייעוץ ארגוני</a><a href="sadnaot.html">סדנאות</a><a href="kurs.html">קורסים</a><a href="about.html">אודותנו</a><a href="articles.html">מאמרים</a><a href="mailto:info@k2think.com">info@k2think.com</a><a href="tel:0559562242">055-9562242</a></div>
+  <p class="footer-copy">© 2026 טווים חשיבה | זוהר סלע לוי</p>
+</footer>
+</body>
+</html>

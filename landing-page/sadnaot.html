@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>סדנאות | טווים חשיבה</title>
+  <meta name="description" content="סדנאות חווייתיות של טווים חשיבה: כובעי חשיבה, מפת חשיבה, פתרון בעיות, צוות חושב ועוד. למידה דרך משחק שמשאירה חותם." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root {
+      --teal:#a8e0dc; --teal-d:#72c4be; --lav:#c5b8e8; --lav-d:#a898d0;
+      --lime:#d4e84a; --lime-d:#b8cc20; --peach:#f5c87a;
+      --white:#ffffff; --text:#1a1a1a; --muted:#5a5a5a; --light:#f6f6f4; --border:#e0e0e0;
+      --r:20px; --r-lg:32px;
+    }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Heebo',sans-serif; background:var(--white); color:var(--text); line-height:1.7; overflow-x:hidden; }
+
+    nav { position:fixed; top:0; width:100%; z-index:100; background:rgba(255,255,255,0.96); backdrop-filter:blur(14px); border-bottom:1px solid var(--border); padding:0 52px; height:66px; display:flex; align-items:center; justify-content:space-between; }
+    .logo { font-size:1.1rem; font-weight:400; color:var(--text); text-decoration:none; border:2px solid var(--text); padding:5px 14px; border-radius:10px; }
+    .logo strong { font-weight:900; }
+    .nav-links { display:flex; gap:24px; list-style:none; font-size:.88rem; font-weight:500; }
+    .nav-links a { color:var(--text); text-decoration:none; transition:opacity .2s; }
+    .nav-links a:hover { opacity:.55; }
+    .nav-cta { background:var(--lime); color:var(--text); padding:9px 22px; border-radius:50px; font-weight:700; font-size:.88rem; text-decoration:none; transition:background .2s; white-space:nowrap; }
+    .nav-cta:hover { background:var(--lime-d); }
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
+    .hamburger span { display:block; width:24px; height:2px; background:var(--text); border-radius:2px; }
+    .mobile-menu { display:none; position:fixed; top:66px; left:0; right:0; background:rgba(255,255,255,.98); backdrop-filter:blur(12px); border-bottom:1px solid var(--border); padding:20px 24px; z-index:99; flex-direction:column; gap:4px; }
+    .mobile-menu.open { display:flex; }
+    .mobile-menu a { color:var(--text); text-decoration:none; font-size:1rem; font-weight:600; padding:12px 0; border-bottom:1px solid var(--border); }
+    .mobile-menu a:last-child { border-bottom:none; }
+
+    section { padding:100px 52px; }
+    .container { max-width:1080px; margin:0 auto; }
+    .pill { display:inline-block; border-radius:50px; padding:5px 18px; font-size:.78rem; font-weight:700; letter-spacing:.8px; margin-bottom:16px; }
+    .pill-lime { background:var(--lime); } .pill-teal { background:var(--teal); } .pill-lav { background:var(--lav); } .pill-peach { background:var(--peach); }
+    .sec-title { font-size:clamp(2rem,3.8vw,3rem); font-weight:900; line-height:1.18; letter-spacing:-.8px; margin-bottom:18px; }
+    .sec-sub { font-size:1rem; color:var(--muted); max-width:540px; line-height:1.85; }
+
+    /* HERO */
+    .hero { background:var(--lav); padding:148px 52px 100px; position:relative; overflow:hidden; }
+    .hero-blob { position:absolute; border-radius:50%; pointer-events:none; }
+    .hero-blob-1 { width:500px; height:500px; background:var(--teal); opacity:.25; top:-180px; left:-140px; }
+    .hero-blob-2 { width:320px; height:320px; background:var(--lime); opacity:.2; bottom:-100px; right:80px; }
+    .hero-inner { position:relative; z-index:1; max-width:1080px; margin:0 auto; }
+    .hero-tag { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.55); border-radius:50px; padding:6px 18px; font-size:.8rem; font-weight:700; letter-spacing:.8px; margin-bottom:22px; }
+    .hero h1 { font-size:clamp(2.6rem,5vw,4rem); font-weight:900; line-height:1.12; letter-spacing:-1.5px; margin-bottom:24px; max-width:700px; }
+    .hero-desc { font-size:1.05rem; color:rgba(26,26,26,.75); line-height:1.85; max-width:520px; margin-bottom:40px; }
+    .btn-dark { display:inline-flex; align-items:center; gap:8px; padding:14px 30px; background:var(--text); color:var(--white); border-radius:50px; font-weight:800; font-size:.95rem; text-decoration:none; transition:opacity .2s,transform .15s; }
+    .btn-dark:hover { opacity:.8; transform:translateY(-2px); }
+
+    /* WHY PLAY */
+    .why-play { background:var(--white); }
+    .why-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+    .why-visual { background:var(--lime); border-radius:var(--r-lg); padding:44px 36px; position:relative; overflow:hidden; }
+    .why-visual .deco { position:absolute; font-size:1.4rem; opacity:.3; }
+    .why-visual .deco:nth-child(1) { top:18px; left:18px; transform:rotate(20deg); }
+    .why-visual .deco:nth-child(2) { bottom:18px; right:18px; transform:rotate(-10deg); }
+    .why-q { font-size:1.35rem; font-weight:900; margin-bottom:24px; line-height:1.35; }
+    .why-items { display:flex; flex-direction:column; gap:10px; }
+    .why-item { background:var(--white); border-radius:14px; padding:14px 18px; display:flex; align-items:center; gap:12px; font-size:.9rem; font-weight:600; }
+    .w-icon { font-size:1.3rem; flex-shrink:0; }
+    .why-text p { font-size:1rem; color:var(--muted); line-height:1.85; margin-bottom:16px; }
+
+    /* WORKSHOPS GRID */
+    .workshops { background:var(--light); }
+    .workshops-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin-top:52px; }
+    .workshop-card { background:var(--white); border-radius:var(--r-lg); padding:40px 32px; text-decoration:none; color:var(--text); display:block; position:relative; overflow:hidden; transition:transform .2s,box-shadow .2s; border:2px solid transparent; }
+    .workshop-card:hover { transform:translateY(-6px); box-shadow:0 16px 40px rgba(0,0,0,.1); border-color:var(--teal-d); }
+    .wc-accent { position:absolute; top:0; right:0; width:100px; height:100px; border-radius:0 var(--r-lg) 0 100px; opacity:.35; }
+    .wc-1 .wc-accent { background:var(--teal); }
+    .wc-2 .wc-accent { background:var(--lav); }
+    .wc-3 .wc-accent { background:var(--lime); }
+    .wc-4 .wc-accent { background:var(--peach); }
+    .wc-icon { font-size:2.6rem; margin-bottom:18px; }
+    .workshop-card h3 { font-size:1.2rem; font-weight:900; margin-bottom:8px; }
+    .workshop-card p { font-size:.9rem; color:var(--muted); line-height:1.7; margin-bottom:20px; }
+    .wc-pill { display:inline-block; border-radius:50px; padding:5px 14px; font-size:.75rem; font-weight:700; margin-left:8px; }
+    .wc-1 .wc-pill { background:var(--teal); }
+    .wc-2 .wc-pill { background:var(--lav); }
+    .wc-3 .wc-pill { background:var(--lime); }
+    .wc-4 .wc-pill { background:var(--peach); }
+    .wc-link { font-size:.88rem; font-weight:800; color:var(--text); display:inline-flex; align-items:center; gap:6px; margin-top:4px; }
+
+    /* COURSE BANNER */
+    .course-banner { background:var(--teal); border-radius:var(--r-lg); padding:52px 48px; margin-top:24px; display:grid; grid-template-columns:1fr auto; gap:32px; align-items:center; text-decoration:none; color:var(--text); position:relative; overflow:hidden; transition:opacity .2s; }
+    .course-banner:hover { opacity:.9; }
+    .course-banner .deco { position:absolute; font-size:1.5rem; opacity:.3; top:20px; left:20px; }
+    .cb-text h3 { font-size:1.4rem; font-weight:900; margin-bottom:8px; }
+    .cb-text p { font-size:.95rem; color:rgba(26,26,26,.75); line-height:1.7; }
+    .cb-btn { background:var(--text); color:var(--white); padding:14px 28px; border-radius:50px; font-weight:800; font-size:.95rem; white-space:nowrap; }
+
+    /* QUOTE */
+    .quote-sec { background:var(--lime); padding:72px 52px; text-align:center; position:relative; overflow:hidden; }
+    .quote-sec .deco-q { font-size:12rem; font-weight:900; color:rgba(0,0,0,.06); line-height:.7; position:absolute; top:20px; right:60px; font-family:Georgia,serif; }
+    .quote-sec blockquote { font-size:clamp(1.6rem,3.5vw,2.6rem); font-weight:900; line-height:1.3; max-width:680px; margin:0 auto 18px; position:relative; z-index:1; letter-spacing:-.4px; }
+    .quote-sec cite { font-size:.88rem; font-weight:600; color:rgba(26,26,26,.6); font-style:normal; position:relative; z-index:1; }
+
+    /* FOOTER */
+    footer { background:var(--text); padding:48px 52px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px; }
+    .footer-logo { font-size:1.1rem; font-weight:400; color:var(--white); border:1.5px solid rgba(255,255,255,.3); padding:5px 14px; border-radius:10px; }
+    .footer-logo strong { font-weight:900; }
+    .footer-links { display:flex; gap:20px; flex-wrap:wrap; }
+    footer a { color:rgba(255,255,255,.6); text-decoration:none; font-size:.88rem; }
+    footer a:hover { color:var(--white); }
+    .footer-copy { color:rgba(255,255,255,.3); font-size:.8rem; width:100%; text-align:center; }
+
+    @media (max-width:960px) {
+      nav { padding:0 20px; }
+      .nav-links, .nav-cta { display:none; }
+      .hamburger { display:flex; }
+      section { padding:72px 24px; }
+      .hero { padding:130px 24px 80px; }
+      .why-grid { grid-template-columns:1fr; gap:36px; }
+      .workshops-grid { grid-template-columns:1fr; }
+      .course-banner { grid-template-columns:1fr; }
+      footer { padding:36px 24px; }
+      .quote-sec { padding:60px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">טווים <strong>חשיבה</strong></a>
+  <ul class="nav-links">
+    <li><a href="yiutz.html">ייעוץ ארגוני</a></li>
+    <li><a href="sadnaot.html">סדנאות</a></li>
+    <li><a href="kurs.html">קורסים</a></li>
+    <li><a href="about.html">אודותנו</a></li>
+    <li><a href="articles.html">מאמרים</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">צור קשר ←</a>
+  <button class="hamburger" aria-label="פתח תפריט" onclick="document.querySelector('.mobile-menu').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html">דף בית</a>
+  <a href="yiutz.html">ייעוץ ארגוני</a>
+  <a href="sadnaot.html">סדנאות</a>
+  <a href="kurs.html">קורסים</a>
+  <a href="about.html">אודותנו</a>
+  <a href="articles.html">מאמרים</a>
+  <a href="contact.html">צור קשר</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-blob hero-blob-1"></div>
+  <div class="hero-blob hero-blob-2"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">✦ סדנאות טווים חשיבה</div>
+    <h1>יוצאים<br/>מהאוטומט</h1>
+    <p class="hero-desc">הידע הוא לא העיקר — המיומנות היא הסיפור. הסדנאות שלנו הן לא עוד הרצאה ששומעים ושוכחים, אלא מרחב להתנסות חווייתית שמשאירה חותם. זה הזמן לצאת מהשגרה ולרכוש כלים פרקטיים שישנו את הדרך שבה אתם עובדים, מחליטים ויוצרים.</p>
+    <a href="contact.html" class="btn-dark">בחרו את הסדנה הבאה שלכם ←</a>
+  </div>
+</section>
+
+<!-- WHY PLAY -->
+<section class="why-play">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-visual">
+        <span class="deco">✦</span>
+        <span class="deco">✦</span>
+        <p class="why-q">למה ללמוד דרך משחק?</p>
+        <div class="why-items">
+          <div class="why-item"><span class="w-icon">🛡️</span>המחסומים וההגנות יורדים</div>
+          <div class="why-item"><span class="w-icon">🔬</span>חושפים דפוסי עבודה מעכבים</div>
+          <div class="why-item"><span class="w-icon">🧪</span>מנסים חלופות חדשות בסביבה בטוחה</div>
+          <div class="why-item"><span class="w-icon">💪</span>נוצרת מחוייבות פנימית עמוקה לשינוי</div>
+        </div>
+      </div>
+      <div class="why-text">
+        <span class="pill pill-lime">למה זה עובד</span>
+        <h2 class="sec-title">המשחק הוא המורה הטוב ביותר לשינוי</h2>
+        <p>כשאנחנו משחקים, אנחנו לא רק לומדים — אנחנו חווים. המשחק מאפשר לנו "להתאמן על יבש", לחשוף דפוסים שבדרך כלל נשארים מוסתרים ולנסות דרכים חדשות בסביבה מעוררת השראה.</p>
+        <p>זו לא עוד הרצאה של ידע — זו למידה חווייתית שיוצרת שינוי אמיתי. המשתתפים יוצאים לא רק עם ידע חדש, אלא עם כלים שמשתמשים בהם כבר ביום שאחרי.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKSHOPS -->
+<section class="workshops">
+  <div class="container">
+    <span class="pill pill-teal">בחרו את הכלי הבא שלכם</span>
+    <h2 class="sec-title">הסדנאות שלנו</h2>
+    <p class="sec-sub">ארבע סדנאות חווייתיות, כל אחת עם כלים ייחודיים — ויחד הן מרחיבות את ארגז הכלים שלכם.</p>
+    <div class="workshops-grid">
+      <a href="sadna-kobaat.html" class="workshop-card wc-1">
+        <div class="wc-accent"></div>
+        <div class="wc-icon">🎩</div>
+        <h3>כובעי החשיבה</h3>
+        <p>הכלי המפורסם בעולם לניהול דיונים וקבלת החלטות. נלמד להפריד בין רגש, עובדות, סיכונים ויצירתיות כדי להגיע להחלטות חדות ומאוזנות יותר.</p>
+        <span class="wc-pill">קבלת החלטות</span>
+        <div class="wc-link">לפרטים ←</div>
+      </a>
+      <a href="sadna-tzevet.html" class="workshop-card wc-2">
+        <div class="wc-accent"></div>
+        <div class="wc-icon">🧩</div>
+        <h3>צוות חושב</h3>
+        <p>סדנה לפרודוקטיביות קבוצתית. דרך משחק קופסה ייחודי, הצוות מתנסה בשיתוף פעולה, ניהול משאבים ופתרון בעיות בזמן אמת.</p>
+        <span class="wc-pill">עבודת צוות</span>
+        <div class="wc-link">לפרטים ←</div>
+      </a>
+      <a href="sadna-mapa.html" class="workshop-card wc-3">
+        <div class="wc-accent"></div>
+        <div class="wc-icon">🗺️</div>
+        <h3>מפת חשיבה</h3>
+        <p>לחשוב נכון, לפעול מדויק. כלי ויזואלי לניהול פרויקטים, סיעור מוחות וארגון מחשבות שחוסך זמן וממקסם את היכולת הקוגניטיבית.</p>
+        <span class="wc-pill">ניהול פרויקטים</span>
+        <div class="wc-link">לפרטים ←</div>
+      </a>
+      <a href="sadna-pitaron.html" class="workshop-card wc-4">
+        <div class="wc-accent"></div>
+        <div class="wc-icon">🔑</div>
+        <h3>סדנת פתרון</h3>
+        <p>חשיבה מתקדמת ליצירת חלופות. איך יוצאים מה"פלונטר" ומוצאים פתרונות חדשניים במקום שבו אחרים רואים רק חסמים.</p>
+        <span class="wc-pill">פתרון בעיות</span>
+        <div class="wc-link">לפרטים ←</div>
+      </a>
+    </div>
+    <a href="kurs.html" class="course-banner">
+      <span class="deco">✦</span>
+      <div class="cb-text">
+        <h3>קורס מנהלים: לחשוב אחרת, להוביל אחרת</h3>
+        <p>קורס עומק בן 3 מפגשים למנהלים שרוצים להוביל מתוך חשיבה מודעת, תקשורת אפקטיבית ותרבות ארגונית מאפשרת. חשיבה אפקטיבית, קבלת החלטות, בניית צוותים פרודוקטיביים.</p>
+      </div>
+      <span class="cb-btn">לפרטי הקורס ←</span>
+    </a>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote-sec">
+  <span class="deco-q">"</span>
+  <blockquote>אם כולם חושבים אותו הדבר,<br/>אז מישהו לא חושב.</blockquote>
+  <cite>— גנרל ג'ורג' פטון</cite>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="index.html" class="footer-logo">טווים <strong>חשיבה</strong></a>
+  <div class="footer-links">
+    <a href="yiutz.html">ייעוץ ארגוני</a>
+    <a href="sadnaot.html">סדנאות</a>
+    <a href="kurs.html">קורסים</a>
+    <a href="about.html">אודותנו</a>
+    <a href="articles.html">מאמרים</a>
+    <a href="mailto:info@k2think.com">info@k2think.com</a>
+    <a href="tel:0559562242">055-9562242</a>
+  </div>
+  <p class="footer-copy">© 2026 טווים חשיבה | זוהר סלע לוי</p>
+</footer>
+
+</body>
+</html>
