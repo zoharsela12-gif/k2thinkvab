@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>צור קשר | טווים חשיבה – זוהר סלע לוי</title>
+  <meta name="description" content="רוצים לשמוע עוד? השאירו פרטים ונחזור אליכם עם הצעה מותאמת." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal:   #a8e0dc; --teal-d:  #72c4be;
+      --lav:    #c5b8e8; --lav-d:   #a898d0;
+      --lime:   #d4e84a; --lime-d:  #b8cc20;
+      --peach:  #f5c87a;
+      --white:  #ffffff; --text:    #1a1a1a;
+      --muted:  #5a5a5a; --light:   #f6f6f4;
+      --border: #e0e0e0; --r: 20px; --r-lg: 32px;
+    }
+
+    body { font-family: 'Heebo', sans-serif; color: var(--text); background: var(--white); }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; gap: 32px;
+      padding: 0 48px; height: 68px;
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { font-size: 1.25rem; font-weight: 700; color: var(--text); text-decoration: none; margin-left: auto; }
+    .logo strong { color: #5a4fcf; }
+    .nav-links { display: flex; gap: 8px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.95rem; padding: 6px 12px; border-radius: 8px; transition: background .2s, color .2s; }
+    .nav-links a:hover, .nav-links a.active { background: var(--light); color: var(--text); }
+    .nav-cta { margin-right: auto; background: var(--text); color: var(--white); text-decoration: none; padding: 8px 20px; border-radius: 10px; font-size: 0.9rem; font-weight: 600; white-space: nowrap; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: .3s; }
+    @media (max-width: 960px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; position: absolute; top: 68px; right: 0; left: 0; background: var(--white); flex-direction: column; padding: 16px 24px 24px; border-bottom: 1px solid var(--border); box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+      .nav-cta { display: none; }
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      color: var(--white); text-align: center;
+      padding: 100px 24px 80px;
+    }
+    .hero-tag { display: inline-block; background: rgba(255,255,255,.12); color: var(--teal); border: 1px solid rgba(168,224,220,.3); border-radius: 50px; padding: 6px 18px; font-size: 0.85rem; font-weight: 600; margin-bottom: 24px; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; line-height: 1.2; margin-bottom: 16px; }
+    .hero p { font-size: 1.15rem; color: rgba(255,255,255,.75); max-width: 560px; margin: 0 auto; }
+
+    /* LAYOUT */
+    .contact-wrap {
+      max-width: 1100px; margin: 0 auto; padding: 80px 24px;
+      display: grid; grid-template-columns: 1fr 420px; gap: 64px; align-items: start;
+    }
+
+    /* FORM */
+    .form-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--r-lg); padding: 48px 40px;
+      box-shadow: 0 4px 32px rgba(0,0,0,.06);
+    }
+    .form-card h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 8px; }
+    .form-card > p { color: var(--muted); margin-bottom: 32px; }
+
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 6px; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%; padding: 12px 16px;
+      border: 1.5px solid var(--border); border-radius: 12px;
+      font-family: 'Heebo', sans-serif; font-size: 0.95rem; color: var(--text);
+      background: var(--light); transition: border-color .2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--teal-d); background: var(--white); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .submit-btn {
+      width: 100%; padding: 16px;
+      background: var(--text); color: var(--white);
+      border: none; border-radius: 14px;
+      font-family: 'Heebo', sans-serif; font-size: 1.05rem; font-weight: 700;
+      cursor: pointer; transition: transform .2s, box-shadow .2s;
+      margin-top: 8px;
+    }
+    .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.15); }
+
+    .form-note { font-size: 0.8rem; color: var(--muted); text-align: center; margin-top: 12px; }
+
+    /* SUCCESS */
+    .success-msg {
+      display: none; background: #e8f8f5; border: 1.5px solid var(--teal-d);
+      border-radius: 14px; padding: 24px; text-align: center; margin-top: 24px;
+    }
+    .success-msg .icon { font-size: 2rem; margin-bottom: 8px; }
+    .success-msg p { font-weight: 600; color: #2d8c80; }
+
+    /* SIDEBAR */
+    .sidebar { display: flex; flex-direction: column; gap: 24px; }
+
+    .info-card {
+      background: var(--light); border-radius: var(--r-lg); padding: 32px 28px;
+    }
+    .info-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 16px; }
+    .info-item { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+    .info-item:last-child { margin-bottom: 0; }
+    .info-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+    .info-icon.teal { background: var(--teal); }
+    .info-icon.lav { background: var(--lav); }
+    .info-icon.lime { background: var(--lime); }
+    .info-icon.peach { background: var(--peach); }
+    .info-item-body strong { display: block; font-size: 0.9rem; font-weight: 700; margin-bottom: 2px; }
+    .info-item-body span { font-size: 0.85rem; color: var(--muted); }
+    .info-item-body a { color: var(--text); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+    .info-item-body a:hover { text-decoration: underline; }
+
+    .promise-card {
+      background: linear-gradient(135deg, #1a1a2e, #0f3460);
+      color: var(--white); border-radius: var(--r-lg); padding: 32px 28px;
+    }
+    .promise-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 16px; color: var(--teal); }
+    .promise-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .promise-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; color: rgba(255,255,255,.85); }
+    .promise-list li::before { content: '✓'; color: var(--lime); font-weight: 700; flex-shrink: 0; }
+
+    /* SERVICES PICKER */
+    .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+    .service-opt { position: relative; }
+    .service-opt input[type="checkbox"] { position: absolute; opacity: 0; width: 0; height: 0; }
+    .service-opt label {
+      display: block; padding: 10px 14px;
+      border: 1.5px solid var(--border); border-radius: 10px;
+      font-size: 0.85rem; font-weight: 600; cursor: pointer;
+      text-align: center; background: var(--light); transition: .2s;
+    }
+    .service-opt input:checked + label { border-color: var(--teal-d); background: rgba(168,224,220,.2); color: #2d8c80; }
+
+    /* FOOTER */
+    footer {
+      background: var(--text); color: rgba(255,255,255,.6);
+      text-align: center; padding: 48px 24px 32px;
+      font-size: 0.85rem;
+    }
+    footer .footer-logo { font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+    footer .footer-logo strong { color: var(--teal); }
+
+    @media (max-width: 900px) {
+      .contact-wrap { grid-template-columns: 1fr; }
+      .sidebar { order: -1; }
+      .form-card { padding: 32px 24px; }
+    }
+    @media (max-width: 480px) {
+      .form-row { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">טווים <strong>חשיבה</strong></a>
+  <ul class="nav-links">
+    <li><a href="yiutz.html">ייעוץ ארגוני</a></li>
+    <li><a href="sadnaot.html">סדנאות</a></li>
+    <li><a href="kurs.html">קורסים</a></li>
+    <li><a href="about.html">אודותנו</a></li>
+    <li><a href="articles.html">מאמרים</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta active">צור קשר ←</a>
+  <button class="hamburger" aria-label="תפריט" onclick="this.classList.toggle('open');document.querySelector('.nav-links').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">דברו איתנו</div>
+  <h1>בואו נתחיל שיחה</h1>
+  <p>ספרו לנו על הארגון שלכם ונחזור עם הצעה מותאמת — בלי התחייבות, בלי לחץ.</p>
+</section>
+
+<!-- MAIN -->
+<div class="contact-wrap">
+
+  <!-- FORM -->
+  <div class="form-card">
+    <h2>השאירו פרטים</h2>
+    <p>נחזור אליכם תוך יום עסקים</p>
+
+    <form id="contactForm" action="https://script.google.com/macros/s/AKfycbzMH_qJYN5FjLqE0O9Pxbq5j9xzYGjLzEVSqR6HF0k3r4D1P3DmhXuQp2v0LgW_8xO/exec" method="POST">
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">שם מלא *</label>
+          <input type="text" id="name" name="name" placeholder="ישראל ישראלי" required />
+        </div>
+        <div class="form-group">
+          <label for="org">ארגון / חברה</label>
+          <input type="text" id="org" name="org" placeholder="שם החברה" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="phone">טלפון *</label>
+          <input type="tel" id="phone" name="phone" placeholder="050-0000000" required />
+        </div>
+        <div class="form-group">
+          <label for="email">אימייל</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>במה אתם מתעניינים?</label>
+        <div class="services-grid">
+          <div class="service-opt">
+            <input type="checkbox" id="s1" name="service_yiutz" value="ייעוץ ארגוני" />
+            <label for="s1">ייעוץ ארגוני</label>
+          </div>
+          <div class="service-opt">
+            <input type="checkbox" id="s2" name="service_sadna" value="סדנאות" />
+            <label for="s2">סדנאות</label>
+          </div>
+          <div class="service-opt">
+            <input type="checkbox" id="s3" name="service_kurs" value="קורסים" />
+            <label for="s3">קורסים</label>
+          </div>
+          <div class="service-opt">
+            <input type="checkbox" id="s4" name="service_other" value="אחר" />
+            <label for="s4">אחר / לא בטוח</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="size">גודל הצוות / ארגון</label>
+        <select id="size" name="size">
+          <option value="">בחרו...</option>
+          <option>עד 10 אנשים</option>
+          <option>11–50 אנשים</option>
+          <option>51–200 אנשים</option>
+          <option>200+ אנשים</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message">ספרו לנו יותר</label>
+        <textarea id="message" name="message" placeholder="מה האתגר שאתם מתמודדים איתו? מה הייתם רוצים שישתנה?"></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">שלחו את הפנייה ←</button>
+      <p class="form-note">* שדות חובה. לא נשלח ספאם, אף פעם.</p>
+    </form>
+
+    <div class="success-msg" id="successMsg">
+      <div class="icon">✓</div>
+      <p>קיבלנו! נחזור אליכם תוך יום עסקים.</p>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="info-card">
+      <h3>פרטי התקשרות</h3>
+      <div class="info-item">
+        <div class="info-icon teal">📞</div>
+        <div class="info-item-body">
+          <strong>טלפון</strong>
+          <a href="tel:+972500000000">050-000-0000</a>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon lav">✉️</div>
+        <div class="info-item-body">
+          <strong>אימייל</strong>
+          <a href="mailto:zohar@tvaim.co.il">zohar@tvaim.co.il</a>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon lime">💬</div>
+        <div class="info-item-body">
+          <strong>WhatsApp</strong>
+          <a href="https://wa.me/972500000000">שלחו הודעה</a>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon peach">📍</div>
+        <div class="info-item-body">
+          <strong>אזור פעילות</strong>
+          <span>ארצי + זום</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="promise-card">
+      <h3>מה מחכה לכם</h3>
+      <ul class="promise-list">
+        <li>תגובה תוך יום עסקים אחד</li>
+        <li>שיחת היכרות של 20 דק' ללא עלות</li>
+        <li>הצעה מותאמת לאחר ההכרות</li>
+        <li>גמישות מלאה בפורמט ובתזמון</li>
+        <li>ניסיון עם חברות מכל הסקטורים</li>
+      </ul>
+    </div>
+
+  </aside>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">טווים <strong>חשיבה</strong></div>
+  <p>© 2026 זוהר סלע לוי | כל הזכויות שמורות</p>
+</footer>
+
+<script>
+  const form = document.getElementById('contactForm');
+  const success = document.getElementById('successMsg');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('.submit-btn');
+    btn.textContent = 'שולח...';
+    btn.disabled = true;
+
+    try {
+      const data = new FormData(form);
+      // collect checkboxes manually
+      const services = [...form.querySelectorAll('input[type=checkbox]:checked')].map(c => c.value).join(', ');
+      data.set('services', services);
+
+      await fetch(form.action, { method: 'POST', body: data, mode: 'no-cors' });
+      form.style.display = 'none';
+      success.style.display = 'block';
+    } catch {
+      btn.textContent = 'שלחו את הפנייה ←';
+      btn.disabled = false;
+      alert('אירעה שגיאה. נסו שוב או צרו קשר ישירות.');
+    }
+  });
+</script>
+</body>
+</html>
