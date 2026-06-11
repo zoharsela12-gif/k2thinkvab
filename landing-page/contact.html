@@ -32,8 +32,7 @@
       background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
-    .logo { font-size: 1.25rem; font-weight: 700; color: var(--text); text-decoration: none; margin-left: auto; }
-    .logo strong { color: #5a4fcf; }
+    .logo { text-decoration:none; display:flex; align-items:center; margin-left:auto; }
     .nav-links { display: flex; gap: 8px; list-style: none; }
     .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.95rem; padding: 6px 12px; border-radius: 8px; transition: background .2s, color .2s; }
     .nav-links a:hover, .nav-links a.active { background: var(--light); color: var(--text); }
@@ -158,8 +157,7 @@
       text-align: center; padding: 48px 24px 32px;
       font-size: 0.85rem;
     }
-    footer .footer-logo { font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
-    footer .footer-logo strong { color: var(--teal); }
+    footer .footer-logo { display:flex; align-items:center; margin-bottom: 8px; }
 
     @media (max-width: 900px) {
       .contact-wrap { grid-template-columns: 1fr; }
@@ -176,7 +174,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="logo">טווים <strong>חשיבה</strong></a>
+  <a href="index.html" class="logo"><img src="logo.png" alt="טווים חשיבה" style="height:36px;display:block;" /></a>
   <ul class="nav-links">
     <li><a href="yiutz.html">ייעוץ ארגוני</a></li>
     <li><a href="sadnaot.html">סדנאות</a></li>
@@ -328,7 +326,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">טווים <strong>חשיבה</strong></div>
+  <div class="footer-logo"><img src="logo.png" alt="טווים חשיבה" style="height:32px;display:block;filter:brightness(0) invert(1);" /></div>
   <p>© 2026 זוהר סלע לוי | כל הזכויות שמורות</p>
 </footer>
 

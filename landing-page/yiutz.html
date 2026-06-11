@@ -48,13 +48,7 @@
       padding: 0 52px; height: 66px;
       display: flex; align-items: center; justify-content: space-between;
     }
-    .logo {
-      font-size: 1.1rem; font-weight: 400; color: var(--text);
-      text-decoration: none;
-      border: 2px solid var(--text);
-      padding: 5px 14px; border-radius: 10px;
-    }
-    .logo strong { font-weight: 900; }
+    .logo { text-decoration:none; display:flex; align-items:center; }
     .nav-links { display: flex; gap: 28px; list-style: none; font-size: 0.9rem; font-weight: 500; }
     .nav-links a { color: var(--text); text-decoration: none; transition: opacity .2s; }
     .nav-links a:hover { opacity: .55; }
@@ -433,12 +427,7 @@
       display: flex; align-items: center;
       justify-content: space-between; flex-wrap: wrap; gap: 20px;
     }
-    .footer-logo {
-      font-size: 1.1rem; font-weight: 400; color: var(--white);
-      border: 1.5px solid rgba(255,255,255,.3);
-      padding: 5px 14px; border-radius: 10px;
-    }
-    .footer-logo strong { font-weight: 900; }
+    .footer-logo { display:flex; align-items:center; }
     .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
     footer a { color: rgba(255,255,255,.6); text-decoration: none; font-size: .88rem; }
     footer a:hover { color: var(--white); }
@@ -471,7 +460,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="logo">טווים <strong>חשיבה</strong></a>
+  <a href="index.html" class="logo"><img src="logo.png" alt="טווים חשיבה" style="height:36px;display:block;" /></a>
   <ul class="nav-links">
     <li><a href="yiutz.html" class="active">ייעוץ ארגוני</a></li>
     <li><a href="sadnaot.html">סדנאות</a></li>
@@ -752,7 +741,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <span class="footer-logo">טווים <strong>חשיבה</strong></span>
+  <span class="footer-logo"><img src="logo.png" alt="טווים חשיבה" style="height:32px;display:block;filter:brightness(0) invert(1);" /></span>
   <div class="footer-links">
     <a href="mailto:info@k2think.com">info@k2think.com</a>
     <a href="tel:0559562242">055-9562242</a>
