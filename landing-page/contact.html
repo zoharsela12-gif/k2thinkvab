@@ -226,7 +226,12 @@
     <h2>השאירו פרטים</h2>
     <p>נחזור אליכם תוך יום עסקים</p>
 
-    <form id="contactForm" action="https://script.google.com/macros/s/AKfycbzMH_qJYN5FjLqE0O9Pxbq5j9xzYGjLzEVSqR6HF0k3r4D1P3DmhXuQp2v0LgW_8xO/exec" method="POST">
+    <form id="contactForm">
+      <input type="hidden" name="access_key" value="REPLACE_WITH_YOUR_KEY" />
+      <input type="hidden" name="subject" value="פנייה חדשה מהאתר – טווים חשיבה" />
+      <input type="hidden" name="cc" value="zoharsela12@gmail.com" />
+      <input type="hidden" name="from_name" value="טווים חשיבה – אתר" />
+      <input type="hidden" name="redirect" value="false" />
 
       <div class="form-row">
         <div class="form-group">
@@ -379,13 +384,21 @@
 
     try {
       const data = new FormData(form);
-      // collect checkboxes manually
       const services = [...form.querySelectorAll('input[type=checkbox]:checked')].map(c => c.value).join(', ');
-      data.set('services', services);
+      data.set('services', services || 'לא צוין');
 
-      await fetch(form.action, { method: 'POST', body: data, mode: 'no-cors' });
-      form.style.display = 'none';
-      success.style.display = 'block';
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: data
+      });
+      const json = await res.json();
+
+      if (json.success) {
+        form.style.display = 'none';
+        success.style.display = 'block';
+      } else {
+        throw new Error(json.message);
+      }
     } catch {
       btn.textContent = 'שלחו את הפנייה ←';
       btn.disabled = false;
