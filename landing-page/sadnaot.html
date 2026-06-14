@@ -113,6 +113,11 @@
     footer a { color:rgba(255,255,255,.6); text-decoration:none; font-size:.88rem; }
     footer a:hover { color:var(--white); }
     .footer-copy { color:rgba(255,255,255,.3); font-size:.8rem; width:100%; text-align:center; }
+    .footer-social { display:flex; gap:10px; }
+    .footer-social a { display:flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:50%; background:rgba(255,255,255,.1); transition:background .2s,color .2s; }
+    .footer-social a:hover { background:rgba(255,255,255,.2); color:var(--white); }
+    .footer-social svg { width:16px; height:16px; stroke:rgba(255,255,255,.65); }
+    .footer-social a:hover svg { stroke:var(--white); }
 
     @media (max-width:960px) {
       nav { padding:0 20px; }
@@ -277,6 +282,7 @@
     <a href="mailto:info@k2think.com">info@k2think.com</a>
     <a href="tel:0559562242">055-9562242</a>
   </div>
+  <div class="footer-social"><a href="https://www.instagram.com/k2think_/" target="_blank" rel="noopener" aria-label="אינסטגרם"><i data-lucide="instagram"></i></a><a href="https://www.facebook.com/profile.php?id=61560121213511" target="_blank" rel="noopener" aria-label="פייסבוק"><i data-lucide="facebook"></i></a></div>
   <p class="footer-copy">© 2026 טווים חשיבה | זוהר סלע לוי</p>
 </footer>
 
