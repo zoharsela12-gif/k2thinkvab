@@ -1,0 +1,8 @@
+{
+  "redirects": [
+    { "source": "/lander", "destination": "/", "permanent": true },
+    { "source": "/lander/(.*)", "destination": "/$1", "permanent": true }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
+}
