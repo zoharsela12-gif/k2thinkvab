@@ -227,7 +227,7 @@
     <p>נחזור אליכם תוך יום עסקים</p>
 
     <form id="contactForm">
-      <input type="hidden" name="access_key" value="REPLACE_WITH_YOUR_KEY" />
+      <input type="hidden" name="access_key" value="7f427524-3e21-49c6-9755-52590f2ee3e2" />
       <input type="hidden" name="subject" value="פנייה חדשה מהאתר – טווים חשיבה" />
       <input type="hidden" name="cc" value="zoharsela12@gmail.com" />
       <input type="hidden" name="from_name" value="טווים חשיבה – אתר" />
@@ -378,6 +378,7 @@
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
     const btn = form.querySelector('.submit-btn');
     btn.textContent = 'שולח...';
     btn.disabled = true;
