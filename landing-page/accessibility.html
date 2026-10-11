@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>הצהרת נגישות | טווים חשיבה</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --teal:#a8e0dc; --teal-d:#72c4be; --lav:#c5b8e8; --lime:#d4e84a; --lime-d:#b8cc20;
+      --peach:#f5c87a; --white:#ffffff; --text:#1a1a1a; --muted:#5a5a5a;
+      --light:#f6f6f4; --border:#e0e0e0; --r:20px;
+    }
+    body { font-family:'Heebo',sans-serif; background:var(--white); color:var(--text); line-height:1.8; }
+    nav { position:fixed; top:0; width:100%; z-index:100; background:rgba(255,255,255,0.96); backdrop-filter:blur(14px); border-bottom:1px solid var(--border); padding:0 52px; height:66px; display:flex; align-items:center; justify-content:space-between; }
+    .logo { text-decoration:none; display:flex; align-items:center; }
+    .nav-links { display:flex; gap:24px; list-style:none; font-size:.88rem; font-weight:500; }
+    .nav-links a { color:var(--text); text-decoration:none; transition:opacity .2s; }
+    .nav-links a:hover { opacity:.55; }
+    .nav-cta { background:var(--lime); color:var(--text); padding:9px 22px; border-radius:50px; font-weight:700; font-size:.88rem; text-decoration:none; }
+    .nav-cta:hover { background:var(--lime-d); }
+
+    .page-hero { background:var(--light); padding:120px 52px 60px; text-align:center; }
+    .page-hero h1 { font-size:2.4rem; font-weight:900; margin-bottom:12px; }
+    .page-hero p { color:var(--muted); font-size:1rem; }
+
+    .content { max-width:780px; margin:0 auto; padding:60px 52px 100px; }
+    .content h2 { font-size:1.3rem; font-weight:800; margin:40px 0 12px; color:var(--text); }
+    .content h2:first-child { margin-top:0; }
+    .content p { color:#333; margin-bottom:14px; }
+    .content ul { padding-right:20px; margin-bottom:14px; }
+    .content ul li { color:#333; margin-bottom:6px; }
+    .highlight-box { background:var(--light); border-right:4px solid var(--teal-d); border-radius:12px; padding:20px 24px; margin:24px 0; }
+    .highlight-box p { margin:0; }
+    .status-badge { display:inline-block; background:#e8f5e9; color:#2e7d32; font-weight:700; font-size:.85rem; padding:4px 14px; border-radius:50px; margin-bottom:16px; }
+    .contact-box { background:var(--light); border-radius:16px; padding:28px 32px; margin-top:40px; }
+    .contact-box h3 { font-size:1.1rem; font-weight:800; margin-bottom:12px; }
+    .contact-box p { margin-bottom:8px; }
+    .contact-box a { color:var(--teal-d); font-weight:600; text-decoration:none; }
+
+    footer { background:#1a1a1a; color:rgba(255,255,255,.7); padding:48px 52px 32px; display:flex; flex-direction:column; align-items:center; gap:20px; text-align:center; }
+    .footer-logo img { height:32px; filter:brightness(0) invert(1); }
+    .footer-links { display:flex; flex-wrap:wrap; gap:12px 24px; justify-content:center; font-size:.88rem; }
+    .footer-links a { color:rgba(255,255,255,.7); text-decoration:none; }
+    .footer-links a:hover { color:#fff; }
+    .footer-legal { display:flex; gap:16px; flex-wrap:wrap; justify-content:center; font-size:.82rem; }
+    .footer-legal a { color:rgba(255,255,255,.5); text-decoration:none; }
+    .footer-legal a:hover { color:rgba(255,255,255,.8); }
+    .footer-copy { font-size:.82rem; color:rgba(255,255,255,.4); }
+
+    @media(max-width:768px) {
+      nav { padding:0 20px; }
+      .page-hero { padding:100px 20px 40px; }
+      .page-hero h1 { font-size:1.8rem; }
+      .content { padding:40px 20px 80px; }
+      footer { padding:40px 20px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo"><img src="logo.png" alt="טווים חשיבה" style="height:36px;display:block;" /></a>
+  <ul class="nav-links">
+    <li><a href="yiutz.html">ייעוץ ארגוני</a></li>
+    <li><a href="sadnaot.html">סדנאות</a></li>
+    <li><a href="kurs.html">קורסים</a></li>
+    <li><a href="about.html">אודותנו</a></li>
+    <li><a href="articles.html">מאמרים</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">צרו קשר</a>
+</nav>
+
+<div class="page-hero">
+  <h1>הצהרת נגישות</h1>
+  <p>עדכון אחרון: אוקטובר 2026</p>
+</div>
+
+<div class="content">
+
+  <span class="status-badge">רמת תאימות: WCAG 2.0 AA (ת"י 5568)</span>
+
+  <div class="highlight-box">
+    <p>טווים חשיבה מחויבת לנגישות דיגיטלית ולאפשר לכלל המשתמשים, לרבות אנשים עם מוגבלויות, להשתמש באתר באופן מיטבי.</p>
+  </div>
+
+  <h2>1. מה הנגישות באתר שלנו</h2>
+  <p>האתר נבנה תוך שימת לב לדרישות הנגישות בהתאם לתקן הישראלי ת"י 5568, המבוסס על WCAG 2.0 ברמה AA. הנגישות שאנו מיישמים כוללת:</p>
+  <ul>
+    <li>טקסט חלופי (alt text) לכל התמונות המשמעותיות</li>
+    <li>מבנה HTML סמנטי עם כותרות היררכיות (H1, H2, H3)</li>
+    <li>ניגודיות צבעים מספקת בין טקסט לרקע</li>
+    <li>תמיכה בניווט מקלדת</li>
+    <li>הגדרת שפה ברמת HTML (lang="he")</li>
+    <li>כיוון RTL (ימין לשמאל) מוגדר כראוי</li>
+    <li>כפתורים וקישורים עם תיאור ברור (aria-label כשנדרש)</li>
+    <li>טפסים עם תוויות (label) לכל שדה</li>
+  </ul>
+
+  <h2>2. תחומים בהם אנו פועלים לשיפור</h2>
+  <p>אנו מודעים לכך שיתכנו פערים קטנים, ופועלים לשיפור מתמיד. הנגישות היא תהליך מתמשך ולא נקודה בזמן.</p>
+
+  <h2>3. דפדפנים ותוכנות קורא מסך</h2>
+  <p>האתר נבדק ומותאם לשימוש עם:</p>
+  <ul>
+    <li>Chrome ו-Edge (גרסאות עדכניות)</li>
+    <li>Safari ו-Firefox</li>
+    <li>מסכי מגע בטלפונים ניידים (iOS ו-Android)</li>
+  </ul>
+
+  <h2>4. תכנים שאינם נגישים במלואם</h2>
+  <p>חלק מקבצי PDF המוטמעים באתר (חומרי קריאה) עשויים שלא לעמוד במלוא דרישות הנגישות. אנו שמחים לספק חלופה נגישה לכל מסמך — פנו אלינו.</p>
+
+  <h2>5. פנייה בנושא נגישות</h2>
+
+  <div class="contact-box">
+    <h3>נתקלת בבעיית נגישות? אנחנו כאן לעזור.</h3>
+    <p>אם מצאת תוכן שאינו נגיש, או שאתה זקוק לתוכן בפורמט נגיש, אנא פנה אלינו:</p>
+    <p><strong>דוא"ל:</strong> <a href="mailto:info@k2think.com">info@k2think.com</a></p>
+    <p><strong>טלפון:</strong> <a href="tel:0542599005">054-2599005</a></p>
+    <p><strong>אנו מתחייבים להשיב תוך 5 ימי עסקים.</strong></p>
+  </div>
+
+  <h2>6. אכיפה</h2>
+  <p>אם לא קיבלת מענה מספק לפנייתך בנושא נגישות, ניתן לפנות לנציבות שוויון זכויות לאנשים עם מוגבלות במשרד המשפטים.</p>
+
+  <h2>7. עדכון ההצהרה</h2>
+  <p>הצהרה זו עודכנה לאחרונה באוקטובר 2026 ותעודכן מדי שנה, או בעקבות שינויים מהותיים באתר.</p>
+
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo"><img src="logo.png" alt="טווים חשיבה" /></a>
+  <div class="footer-links">
+    <a href="yiutz.html">ייעוץ ארגוני</a>
+    <a href="sadnaot.html">סדנאות</a>
+    <a href="kurs.html">קורסים</a>
+    <a href="about.html">אודותנו</a>
+    <a href="articles.html">מאמרים</a>
+    <a href="contact.html">צרו קשר</a>
+  </div>
+  <div class="footer-legal">
+    <a href="privacy.html">מדיניות פרטיות</a>
+    <a href="terms.html">תקנון ותנאי שימוש</a>
+    <a href="accessibility.html">הצהרת נגישות</a>
+  </div>
+  <p class="footer-copy">© 2026 טווים חשיבה | זוהר סלע לוי | עוסק מורשה 20146366</p>
+</footer>
+
+</body>
+</html>
